@@ -1,14 +1,69 @@
 ---
 import Card from "../components/Card.astro";
-import Welcome from "../components/Welcome.astro";
+import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import { getPosts } from "../utils/sanity";
 
 const posts = await getPosts();
 ---
 
-<Layout title="Welcome to Astro.">
-  <section>
-    {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />}
-  </section>
+<Layout title="Creative Writer & Storyteller">
+  <Hero />
+
+  {
+    posts.length > 0 && (
+      <section class="posts">
+        <div class="posts__header">
+          <h2 class="posts__title">Latest Work</h2>
+        </div>
+        <div class="posts__grid">
+          {posts.map((post) => (
+            <Card post={post} />
+          ))}
+        </div>
+      </section>
+    )
+  }
 </Layout>
+
+<style>
+  .posts {
+    padding: var(--space-6) var(--space-3);
+    max-width: var(--max-width-1);
+    margin: 0 auto;
+  }
+
+  .posts__header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+
+  .posts__title {
+    font-size: var(--font-size-6);
+    font-weight: 700;
+    color: var(--black);
+    margin: 0;
+    font-family: var(--font-family-serif);
+  }
+
+  .posts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 574px) {
+    .posts {
+      padding: var(--space-4) var(--space-3);
+    }
+
+    .posts__title {
+      font-size: var(--font-size-4);
+    }
+
+    .posts__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+  }
+</style>

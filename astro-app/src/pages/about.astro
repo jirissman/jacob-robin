@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PortableText } from 'astro-portabletext';
+import { urlFor } from '../utils/image';
+import { getAbout } from '../utils/sanity';
+
+const about = await getAbout();
+---
+
+<Layout title={`${about.title} | Creative Writer & Storyteller`}>
+  <section class="about">
+    <div class="about__layout">
+      {
+        about.image ? (
+          <div class="about__image">
+            <img src={urlFor(about.image).url()} alt={about.image.alt || 'About image'} />
+          </div>
+        ) : null
+      }
+      <div class="about__content">
+        <h1 class="about__title">{about.title}</h1>
+        <div class="about__text">
+          <PortableText value={about.body} />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about {
+    padding: var(--space-8) var(--space-3) var(--space-6);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .about__title {
+    font-size: var(--font-size-7);
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 var(--space-6);
+    color: var(--black);
+    font-family: var(--font-family-serif);
+  }
+
+  .about__layout {
+    display: flex;
+    gap: var(--space-6);
+    align-items: flex-start;
+  }
+
+  .about__image {
+    flex: 0 0 300px;
+    margin: 0;
+  }
+
+  .about__image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .about__text {
+    flex: 1;
+    margin-bottom: var(--space-6);
+  }
+
+  .about__text p {
+    font-size: var(--font-size-3);
+    line-height: 1.7;
+    margin: 0 0 var(--space-4);
+    color: var(--black);
+    font-family: var(--font-family-serif);
+  }
+
+  /* Targeting tags in PortableText */
+  .about__text :global(p) {
+    font-size: var(--font-size-3);
+    line-height: 1.7;
+    margin: 0 0 var(--space-4);
+    color: var(--black);
+    font-family: var(--font-family-serif);
+  }
+
+  .about__text :global(h2) {
+    font-size: var(--font-size-5);
+    font-weight: 600;
+    margin: var(--space-5) 0 var(--space-3);
+    color: var(--black);
+    font-family: var(--font-family-sans);
+  }
+
+  .about__text :global(h3) {
+    font-size: var(--font-size-4);
+    font-weight: 600;
+    margin: var(--space-4) 0 var(--space-3);
+    color: var(--black);
+    font-family: var(--font-family-sans);
+  }
+
+  .about__text :global(strong) {
+    font-weight: 600;
+  }
+
+  .about__text :global(em) {
+    font-style: italic;
+  }
+
+  .about__contact {
+    border-top: 1px solid var(--gray-200);
+    padding-top: var(--space-5);
+  }
+
+  .about__contact h2 {
+    font-size: var(--font-size-5);
+    font-weight: 600;
+    margin: 0 0 var(--space-3);
+    color: var(--black);
+    font-family: var(--font-family-sans);
+  }
+
+  .about__contact p {
+    font-size: var(--font-size-2);
+    line-height: 1.6;
+    margin: 0 0 var(--space-3);
+    color: var(--black);
+  }
+
+  .about__email {
+    font-size: var(--font-size-2);
+    color: var(--gray-600);
+  }
+
+  @media (max-width: 768px) {
+    .about__layout {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .about__image {
+      flex: none;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 574px) {
+    .about {
+      padding: var(--space-6) var(--space-3) var(--space-4);
+    }
+
+    .about__title {
+      font-size: var(--font-size-5);
+    }
+
+    .about__layout {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .about__image {
+      flex: none;
+      text-align: center;
+    }
+
+    .about__text p {
+      font-size: var(--font-size-2);
+    }
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+
+---
+
+<section class="hero">
+  <div class="hero__content">
+    <h1 class="hero__title">Creative Writer & Storyteller</h1>
+    <h2 class="hero__subtitle">Jacob Robin</h2>
+    <p class="hero__description">
+      Crafting compelling narratives that blend imagination with insight.
+      Specializing in creative writing, storytelling, and content creation.
+    </p>
+    <div class="hero__contact">
+      <p>Boston, Massachusetts | email@example.com</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: var(--space-6) var(--space-3);
+    text-align: center;
+  }
+
+  .hero__content {
+    max-width: 600px;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-8);
+    font-weight: 700;
+    line-height: var(--line-height-8);
+    margin: 0 0 var(--space-2);
+    color: var(--black);
+    font-family: var(--font-family-serif);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-6);
+    font-weight: 500;
+    line-height: var(--line-height-6);
+    margin: 0 0 var(--space-4);
+    color: var(--gray-600);
+    font-family: var(--font-family-sans);
+  }
+
+  .hero__description {
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-4);
+    margin: 0 0 var(--space-5);
+    color: var(--black);
+    font-family: var(--font-family-serif);
+  }
+
+  .hero__contact {
+    font-size: var(--font-size-2);
+    color: var(--gray-600);
+    margin: 0;
+  }
+
+  @media (max-width: 574px) {
+    .hero {
+      min-height: 70vh;
+      padding: var(--space-5) var(--space-3);
+    }
+
+    .hero__title {
+      font-size: var(--font-size-6);
+      line-height: var(--line-height-6);
+    }
+
+    .hero__subtitle {
+      font-size: var(--font-size-4);
+      line-height: var(--line-height-4);
+    }
+
+    .hero__description {
+      font-size: var(--font-size-2);
+      line-height: var(--line-height-3);
+    }
+  }
+</style>

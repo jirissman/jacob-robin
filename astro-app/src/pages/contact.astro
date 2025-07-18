@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact | Creative Writer & Storyteller">
+  <section class="contact">
+    <div class="contact__content">
+      <h1 class="contact__title">Get in Touch</h1>
+
+      <div class="contact__text">
+        <p>
+          I'm always excited to connect with fellow writers, readers,
+          publishers, and anyone interested in the world of creative
+          storytelling. Whether you have a project in mind, want to discuss
+          collaboration opportunities, or simply want to chat about writing and
+          literature, I'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact__info">
+        <div class="contact__section">
+          <h2>Email</h2>
+          <p>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+        </div>
+
+        <div class="contact__section">
+          <h2>Location</h2>
+          <p>Your City, State</p>
+        </div>
+
+        <div class="contact__section">
+          <h2>Social Media</h2>
+          <div class="contact__social">
+            <a
+              href="https://medium.com/@yourhandle"
+              target="_blank"
+              rel="noopener noreferrer">Medium</a
+            >
+            <a
+              href="https://www.instagram.com/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer">Instagram</a
+            >
+            <a
+              href="https://x.com/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer">Twitter</a
+            >
+            <a
+              href="https://www.linkedin.com/in/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer">LinkedIn</a
+            >
+          </div>
+        </div>
+
+        <div class="contact__section">
+          <h2>Response Time</h2>
+          <p>
+            I typically respond to emails within 24-48 hours. For urgent
+            inquiries, please mention "URGENT" in your subject line.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact {
+    padding: var(--space-8) var(--space-3) var(--space-6);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact__title {
+    font-size: var(--font-size-7);
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 var(--space-6);
+    color: var(--black);
+    font-family: var(--font-family-serif);
+  }
+
+  .contact__text {
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .contact__text p {
+    font-size: var(--font-size-3);
+    line-height: 1.7;
+    margin: 0;
+    color: var(--black);
+    font-family: var(--font-family-serif);
+  }
+
+  .contact__info {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .contact__section h2 {
+    font-size: var(--font-size-4);
+    font-weight: 600;
+    margin: 0 0 var(--space-2);
+    color: var(--black);
+    font-family: var(--font-family-sans);
+  }
+
+  .contact__section p {
+    font-size: var(--font-size-2);
+    line-height: 1.6;
+    margin: 0;
+    color: var(--black);
+  }
+
+  .contact__section a {
+    color: var(--blue-600);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact__section a:hover {
+    color: var(--black);
+    text-decoration: underline;
+  }
+
+  .contact__social {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .contact__social a {
+    font-size: var(--font-size-2);
+    color: var(--blue-600);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact__social a:hover {
+    color: var(--black);
+  }
+
+  @media (max-width: 574px) {
+    .contact {
+      padding: var(--space-6) var(--space-3) var(--space-4);
+    }
+
+    .contact__title {
+      font-size: var(--font-size-5);
+    }
+
+    .contact__text p {
+      font-size: var(--font-size-2);
+    }
+
+    .contact__social {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+</style>

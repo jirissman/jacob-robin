@@ -5,7 +5,7 @@ import {defineField, defineType} from 'sanity'
  * Learn more: https://www.sanity.io/docs/schema-types
  */
 
-export default defineType({
+export const postType = defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
@@ -38,13 +38,13 @@ export default defineType({
       options: {
         hotspot: true,
       },
-			fields: [
-				defineField({
-					name: 'alt',
-					title: 'Alternative text',
-					type: 'string',
-				}),
-			],
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alternative text',
+          type: 'string',
+        }),
+      ],
     }),
     defineField({
       name: 'body',

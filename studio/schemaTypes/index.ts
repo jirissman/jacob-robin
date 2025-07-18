@@ -1,4 +1,8 @@
-import blockContent from './objects/blockContent'
-import post from './documents/post'
+import {type SchemaTypeDefinition} from 'sanity'
+import {aboutType} from './aboutType'
+import {blockContentType} from './blocks/blockContentType'
+import {postType} from './documents/postType'
 
-export const schemaTypes = [post, blockContent]
+export const schemaTypes: {types: SchemaTypeDefinition[]} = {
+  types: [aboutType, postType, blockContentType],
+}

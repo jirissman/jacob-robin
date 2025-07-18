@@ -1,0 +1,76 @@
+---
+// Footer component
+---
+
+<footer class="footer">
+  <div class="footer__content">
+    <div class="footer__social">
+      <a
+        href="https://medium.com/@yourhandle"
+        target="_blank"
+        rel="noopener noreferrer">Medium</a
+      >
+      <a
+        href="https://www.instagram.com/yourhandle"
+        target="_blank"
+        rel="noopener noreferrer">Instagram</a
+      >
+      <a
+        href="https://x.com/yourhandle"
+        target="_blank"
+        rel="noopener noreferrer">Twitter</a
+      >
+      <a
+        href="https://www.linkedin.com/in/yourhandle"
+        target="_blank"
+        rel="noopener noreferrer">LinkedIn</a
+      >
+    </div>
+    <p class="footer__text">© 2025 Jacob Robin. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-6) var(--space-3);
+    border-top: 1px solid var(--gray-200);
+    margin-top: var(--space-8);
+
+    & .footer__content {
+      text-align: center;
+      max-width: var(--max-width-1);
+    }
+
+    & .footer__social {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-3);
+
+      & a {
+        font-size: var(--font-size-1);
+        text-decoration: none;
+        color: var(--gray-600);
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--black);
+        }
+      }
+    }
+
+    & .footer__text {
+      font-size: var(--font-size-1);
+      color: var(--gray-600);
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 575px) {
+    .footer {
+      margin: var(--space-6) 0;
+    }
+  }
+</style>
