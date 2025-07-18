@@ -1,6 +1,6 @@
 {
   "name": "jacob-robin",
-  "description": "Minimal Astro site with Sanity Studio",
+  "description": "Jacob Robin",
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace=astro-app\" \"npm run dev --workspace=studio\""
   },
