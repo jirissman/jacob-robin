@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { PortableText } from 'astro-portabletext';
-import { urlFor } from '../utils/image';
-import { getAbout } from '../utils/sanity';
+import Layout from "../layouts/Layout.astro";
+import { PortableText } from "astro-portabletext";
+import { urlFor } from "../utils/image";
+import { getAbout } from "../utils/sanity";
 
 const about = await getAbout();
 ---
@@ -13,7 +13,10 @@ const about = await getAbout();
       {
         about.image ? (
           <div class="about__image">
-            <img src={urlFor(about.image).url()} alt={about.image.alt || 'About image'} />
+            <img
+              src={urlFor(about.image).url()}
+              alt={about.image.alt || "About image"}
+            />
           </div>
         ) : null
       }
@@ -38,7 +41,7 @@ const about = await getAbout();
   .about__title {
     font-size: var(--font-size-7);
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     margin: 0 0 var(--space-6);
     color: var(--black);
     font-family: var(--font-family-serif);

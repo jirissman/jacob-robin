@@ -40,13 +40,16 @@ const { post } = Astro.props;
     display: flex;
     flex-direction: column;
     padding: var(--space-4);
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
     transition:
       box-shadow 0.2s ease,
       transform 0.2s ease;
     background: var(--white);
     position: relative;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+    height: fit-content;
+    box-sizing: border-box;
 
     &:hover {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -61,14 +64,12 @@ const { post } = Astro.props;
       width: 100%;
       height: 200px;
       object-fit: cover;
-      border-radius: 4px;
     }
 
     & .card__cover--none {
       width: 100%;
       height: 200px;
       background: var(--gray-200);
-      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -127,6 +128,7 @@ const { post } = Astro.props;
   @media (max-width: 574px) {
     .card {
       padding: var(--space-3);
+      height: fit-content;
 
       & .card__cover,
       & .card__cover--none {
