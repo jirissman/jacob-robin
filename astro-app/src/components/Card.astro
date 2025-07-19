@@ -50,6 +50,8 @@ const { post } = Astro.props;
     max-width: 420px;
     width: 100%;
     margin: 0 auto;
+    height: fit-content;
+    box-sizing: border-box;
 
     &:hover {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -123,6 +125,7 @@ const { post } = Astro.props;
         position: absolute;
         inset: 0;
         z-index: 1;
+        border-radius: 8px;
       }
     }
   }
@@ -130,6 +133,7 @@ const { post } = Astro.props;
   @media (max-width: 574px) {
     .card {
       padding: var(--space-3);
+      height: fit-content;
 
       & .card__cover,
       & .card__cover--none {
