@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-4) var(--space-1);
+    padding: var(--space-4) var(--space-6);
     border-bottom: 1px solid var(--gray-200);
     background: var(--white);
     position: fixed;
@@ -61,6 +61,12 @@
       &--home {
         font-weight: 700;
       }
+    }
+  }
+
+  @media (max-width: 574px) {
+    .header {
+      padding: var(--space-4) var(--space-3);
     }
   }
 
