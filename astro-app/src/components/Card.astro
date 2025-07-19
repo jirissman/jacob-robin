@@ -40,8 +40,6 @@ const { post } = Astro.props;
     display: flex;
     flex-direction: column;
     padding: var(--space-4);
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
     transition:
       box-shadow 0.2s ease,
       transform 0.2s ease;
@@ -66,14 +64,12 @@ const { post } = Astro.props;
       width: 100%;
       height: 200px;
       object-fit: cover;
-      border-radius: 4px;
     }
 
     & .card__cover--none {
       width: 100%;
       height: 200px;
       background: var(--gray-200);
-      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -125,7 +121,6 @@ const { post } = Astro.props;
         position: absolute;
         inset: 0;
         z-index: 1;
-        border-radius: 8px;
       }
     }
   }
