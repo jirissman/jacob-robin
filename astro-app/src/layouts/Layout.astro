@@ -106,10 +106,7 @@ const { title } = Astro.props;
     --line-height-11: 96px;
     --line-height-12: 128px;
 
-    --white: #fff;
-    --black: #101112;
-    --gray-200: #ced2d9;
-    --gray-600: #6e7683;
+    /* Static colors - don't change with theme */
     --blue-600: #1e61cd;
     --magenta-100: #f9d7eb;
 
@@ -118,21 +115,50 @@ const { title } = Astro.props;
   }
 
   html {
-    background-color: var(--white);
+    background-color: var(--background-color);
     font-family: var(--font-family-sans), var(--font-family-serif), sans-serif;
     text-size-adjust: 100%;
   }
 
+  /* Unified color system inspired by Sanity schema */
   :root[data-theme="light"] {
+    /* Primary colors */
+    --primary-color: #1e61cd;
+    --secondary-color: #6e7683;
+
+    /* Background colors */
     --background-color: #ffffff;
-    --text-color: #000000;
+    --surface-color: #ffffff; /* Used for cards, headers, etc. */
+
+    /* Text colors */
+    --text-primary: #101112;
+    --text-secondary: #6e7683;
+    --text-color: #101112;
+
+    /* Border colors */
+    --border-color: #ced2d9;
+
     color-scheme: light;
   }
 
   @media (prefers-color-scheme: dark), :root[data-theme="dark"] {
     :root {
-      --background-color: #333333;
+      /* Primary colors */
+      --primary-color: #4285f4;
+      --secondary-color: #b0b0b0;
+
+      /* Background colors */
+      --background-color: #1a1a1a;
+      --surface-color: #2a2a2a; /* Used for cards, headers, etc. */
+
+      /* Text colors */
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
       --text-color: #ffffff;
+
+      /* Border colors */
+      --border-color: #404040;
+
       color-scheme: dark;
     }
   }
