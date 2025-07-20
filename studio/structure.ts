@@ -1,5 +1,5 @@
 import type {StructureResolver} from 'sanity/structure'
-import {UserIcon, DocumentIcon, CogIcon, ColorWheelIcon, DropIcon} from '@sanity/icons'
+import {UserIcon, DocumentIcon, CogIcon, DropIcon} from '@sanity/icons'
 
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
