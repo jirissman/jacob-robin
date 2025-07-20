@@ -18,15 +18,15 @@ export const structure: StructureResolver = (S) =>
             .title('Edit About Page'),
         ),
       S.divider(),
-      S.documentTypeListItem('styleConfig').title('Style Configurations').icon(DropIcon),
+      S.documentTypeListItem('styleConfig').title('Theme Configurations').icon(DropIcon),
       S.listItem()
-        .title('Active Style')
+        .title('Active Themes')
         .icon(CogIcon)
         .child(
           S.editor()
             .id('activeStyleEditor')
             .schemaType('activeStyle')
             .documentId('activeStyle')
-            .title('Select Active Style Configuration'),
+            .title('Theme Configuration'),
         ),
     ])
