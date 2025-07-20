@@ -1,8 +1,7 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import { Header, Footer, ThemeManager } from "../components";
 
 interface Props {
   title: string;
@@ -29,6 +28,7 @@ const { title } = Astro.props;
 
     <title>{title}</title>
     <ClientRouter />
+    <ThemeManager defaultTheme="auto" />
   </head>
   <body>
     <div class="container">
@@ -123,7 +123,22 @@ const { title } = Astro.props;
     text-size-adjust: 100%;
   }
 
+  :root[data-theme="light"] {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark), :root[data-theme="dark"] {
+    :root {
+      --background-color: #333333;
+      --text-color: #ffffff;
+      color-scheme: dark;
+    }
+  }
+
   body {
-    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
 </style>
