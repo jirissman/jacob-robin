@@ -253,44 +253,45 @@ export const styleConfigType = defineType({
 // Active Style Selector (Singleton)
 export const activeStyleType = defineType({
   name: 'activeStyle',
-  title: 'Active Themes',
+  title: 'Active Style Configuration',
   type: 'document',
-  description: 'Select which theme configurations are currently active',
+  description: 'Select which style and theme configurations are currently active',
   fields: [
     defineField({
       name: 'title',
       title: 'Settings Title',
       type: 'string',
-      initialValue: 'Active Theme Configurations',
+      initialValue: 'Active Style and Theme Configurations',
       readOnly: true,
       hidden: true,
     }),
     defineField({
       name: 'activeConfigLight',
-      title: 'Light Theme',
+      title: 'Light Theme Colors',
       type: 'reference',
-      to: [{type: 'styleConfig'}],
+      to: [{type: 'lightTheme'}],
       validation: (rule) => rule.required(),
-      options: {
-        filter: () => ({
-          filter: "_type == 'styleConfig' && theme.colorScheme == 'light'",
-        }),
-      },
     }),
     defineField({
       name: 'activeConfigDark',
-      title: 'Dark Theme',
+      title: 'Dark Theme Colors',
       type: 'reference',
-      to: [{type: 'styleConfig'}],
+      to: [{type: 'darkTheme'}],
       validation: (rule) => rule.required(),
-      options: {
-        filter: () => ({
-          filter: "_type == 'styleConfig' && theme.colorScheme == 'dark'",
-        }),
-      },
+    }),
+    defineField({
+      name: 'activeTypography',
+      title: 'Typography',
+      type: 'reference',
+      to: [{type: 'typography'}],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'activeLayout',
+      title: 'Layout Settings',
+      type: 'reference',
+      to: [{type: 'layoutSettings'}],
+      validation: (rule) => rule.required(),
     }),
   ],
 })
-
-// Export both types
-export const styleType = styleConfigType
