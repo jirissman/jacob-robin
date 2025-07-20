@@ -2,12 +2,22 @@
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
 import { Header, Footer, ThemeManager } from "../components";
+import {
+  getDarkTheme,
+  getLayoutSettings,
+  getLightTheme,
+  getTypography,
+} from "../utils/sanity";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const darkTheme = await getDarkTheme();
+const lightTheme = await getLightTheme();
+const typography = await getTypography();
+const layout = await getLayoutSettings();
 ---
 
 <!doctype html>

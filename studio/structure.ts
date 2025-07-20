@@ -39,6 +39,6 @@ export const structure: StructureResolver = (S) =>
             .id('activeStyleEditor')
             .schemaType('activeStyle')
             .documentId('activeStyle')
-            .title('Theme Configuration'),
+            .title('Theme and Style Configuration'),
         ),
     ])
