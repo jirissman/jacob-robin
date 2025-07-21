@@ -10,7 +10,7 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "typegen": "npx sanity schema extract && npx sanity typegen generate"
+    "typegen": "npx sanity schema extract && npx sanity typegen generate --config-path=./sanity-typegen.json"
   },
   "keywords": [
     "sanity"

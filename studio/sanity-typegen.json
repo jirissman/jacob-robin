@@ -1,0 +1,5 @@
+{
+  "path": "../{studio,astro-app,shared}/**/*.{ts,tsx,js,jsx}",
+  "schema": "./schema.json",
+  "generates": "../shared/sanity.types.ts"
+}
