@@ -26,6 +26,8 @@ export const postType = defineType({
     }),
     defineField({
       name: 'categories',
+      title: 'Categories',
+      description: 'Select one or more categories for this post.',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'category'}]}],
     }),
