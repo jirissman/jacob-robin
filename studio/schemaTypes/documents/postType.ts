@@ -33,6 +33,8 @@ export const postType = defineType({
     }),
     defineField({
       name: 'tags',
+      title: 'Tags',
+      description: 'Add relevant tags to categorize the post.',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'tag'}]}],
     }),
