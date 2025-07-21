@@ -1,5 +1,5 @@
 ---
-import { formatDate } from "../utils";
+import dayjs from "dayjs";
 import { urlFor } from "../utils/image";
 
 const { post } = Astro.props;
@@ -27,7 +27,7 @@ const { post } = Astro.props;
       {(post.categories ?? []).join(" • ")}
     </p>
     <p class="card__date">
-      {formatDate(post.publishedAt)}
+      {dayjs(post.publishedAt).format("MMMM D, YYYY")}
     </p>
   </div>
 </div>
