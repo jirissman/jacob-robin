@@ -19,8 +19,11 @@ export async function getStaticPaths() {
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 const { slug } = Astro.params as Params;
 
-const post = await getPost(slug!);
+if (!slug) {
+  return Astro.redirect("/404");
+}
 
+const post = await getPost(slug);
 // Redirect to 404 if post is not found
 if (!post) {
   return new Response(null, { status: 404 });
