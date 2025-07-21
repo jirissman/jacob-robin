@@ -1,9 +1,8 @@
 import {defineField, defineType} from 'sanity'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 
-/**
- * Post schema.  Define and edit the fields for the 'post' content type.
- * Learn more: https://www.sanity.io/docs/schema-types
- */
+dayjs.extend(relativeTime)
 
 export const postType = defineType({
   name: 'post',
@@ -26,15 +25,30 @@ export const postType = defineType({
       },
     }),
     defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'text',
-      rows: 4,
+      name: 'categories',
+      title: 'Categories',
+      description: 'Select one or more categories for this post.',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'category'}]}],
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      description: 'Add relevant tags to categorize the post.',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'tag'}]}],
+    }),
+    defineField({
+      name: 'publishedAt',
+      title: 'Publication Date',
+      type: 'date',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
       },
@@ -43,6 +57,8 @@ export const postType = defineType({
           name: 'alt',
           title: 'Alternative text',
           type: 'string',
+          description: 'Important for SEO and accessibility.',
+          validation: (Rule) => Rule.required(),
         }),
       ],
     }),
@@ -55,12 +71,12 @@ export const postType = defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      modified: '_updatedAt',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const {modified} = selection
+      return {...selection, subtitle: modified && `updated ${dayjs(modified).fromNow()}`}
     },
   },
 })
