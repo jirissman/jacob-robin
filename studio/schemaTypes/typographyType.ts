@@ -68,7 +68,7 @@ export const typographyType = defineType({
       type: 'number',
       description: 'Line height multiplier (e.g., 1.5 for 150%)',
       initialValue: DEFAULT_TYPOGRAPHY.lineHeight,
-      validation: (rule) => rule.min(1).max(3).precision(1),
+      validation: (rule) => rule.min(1).max(3).precision(2),
     }),
   ],
   preview: {
