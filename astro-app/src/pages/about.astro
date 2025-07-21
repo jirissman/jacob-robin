@@ -7,9 +7,9 @@ import { type Image } from "sanity";
 
 const about = await getAbout();
 
-// Redirect to 404 if about content is not found
+// Return a 404 response if about content is not found
 if (!about) {
-  return Astro.redirect("/404");
+  return new Response(null, { status: 404 });
 }
 ---
 
