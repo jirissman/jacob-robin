@@ -64,16 +64,21 @@ export type Typography = {
   _updatedAt: string
   _rev: string
   title?: string
-  fontFamily?:
-    | 'system-ui'
-    | 'Inter'
-    | 'Roboto'
-    | 'Open Sans'
-    | 'Poppins'
+  sansSerifFont?: 'Inter' | 'Roboto' | 'Open Sans' | 'Poppins' | 'Arial' | 'Helvetica'
+  serifFont?:
     | 'Merriweather'
     | 'Playfair Display'
-    | 'custom'
-  customFontFamily?: string
+    | 'Georgia'
+    | 'Times New Roman'
+    | 'Crimson Text'
+    | 'Lora'
+  monospaceFont?:
+    | 'Fira Code'
+    | 'Source Code Pro'
+    | 'Monaco'
+    | 'Consolas'
+    | 'JetBrains Mono'
+    | 'Courier New'
   fontSize?: {
     mobile?: number
     desktop?: number
@@ -91,7 +96,9 @@ export type DarkTheme = {
   primaryColor?: Color
   secondaryColor?: Color
   backgroundColor?: Color
+  surfaceColor?: Color
   textColor?: Color
+  borderColor?: Color
 }
 
 export type LightTheme = {
@@ -104,7 +111,9 @@ export type LightTheme = {
   primaryColor?: Color
   secondaryColor?: Color
   backgroundColor?: Color
+  surfaceColor?: Color
   textColor?: Color
+  borderColor?: Color
 }
 
 export type BlockContent = Array<

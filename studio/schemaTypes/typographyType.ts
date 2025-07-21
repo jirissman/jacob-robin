@@ -1,5 +1,6 @@
 import {defineType, defineField} from 'sanity'
 import {TextIcon} from '@sanity/icons'
+import {DEFAULT_TYPOGRAPHY, FONT_OPTIONS} from '../../shared/defaults'
 
 export const typographyType = defineType({
   name: 'typography',
@@ -16,31 +17,28 @@ export const typographyType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'fontFamily',
-      title: 'Font Family',
+      name: 'sansSerifFont',
+      title: 'Sans-serif Font',
       type: 'string',
       options: {
-        list: [
-          {title: 'System Default', value: 'system-ui'},
-          {title: 'Inter', value: 'Inter'},
-          {title: 'Roboto', value: 'Roboto'},
-          {title: 'Open Sans', value: 'Open Sans'},
-          {title: 'Poppins', value: 'Poppins'},
-          {title: 'Merriweather', value: 'Merriweather'},
-          {title: 'Playfair Display', value: 'Playfair Display'},
-          {title: 'Custom', value: 'custom'},
-        ],
+        list: FONT_OPTIONS.sansSerif,
       },
-      initialValue: 'system-ui',
-      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'customFontFamily',
-      title: 'Custom Font Family',
+      name: 'serifFont',
+      title: 'Serif Font',
       type: 'string',
-      description:
-        'CSS font-family value (see https://www.w3.org/Style/Examples/007/fonts.en.html for examples)',
-      hidden: ({parent}) => parent?.fontFamily !== 'custom',
+      options: {
+        list: FONT_OPTIONS.serif,
+      },
+    }),
+    defineField({
+      name: 'monospaceFont',
+      title: 'Monospace Font',
+      type: 'string',
+      options: {
+        list: FONT_OPTIONS.monospace,
+      },
     }),
     defineField({
       name: 'fontSize',
@@ -51,36 +49,42 @@ export const typographyType = defineType({
           name: 'mobile',
           title: 'Mobile (px)',
           type: 'number',
-          initialValue: 16,
-          validation: (rule) => rule.min(12).max(24),
+          initialValue: DEFAULT_TYPOGRAPHY.fontSize.mobile,
+          validation: (rule) => rule.min(12).max(24).required(),
         }),
         defineField({
           name: 'desktop',
           title: 'Desktop (px)',
           type: 'number',
-          initialValue: 18,
-          validation: (rule) => rule.min(14).max(28),
+          initialValue: DEFAULT_TYPOGRAPHY.fontSize.desktop,
+          validation: (rule) => rule.min(14).max(28).required(),
         }),
       ],
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'lineHeight',
       title: 'Line Height',
       type: 'number',
       description: 'Line height multiplier (e.g., 1.5 for 150%)',
-      initialValue: 1.6,
+      initialValue: DEFAULT_TYPOGRAPHY.lineHeight,
       validation: (rule) => rule.min(1).max(3).precision(1),
     }),
   ],
   preview: {
     select: {
       title: 'title',
-      fontFamily: 'fontFamily',
+      sansSerifFont: 'sansSerifFont',
+      serifFont: 'serifFont',
+      monospaceFont: 'monospaceFont',
     },
-    prepare({title, fontFamily}) {
+    prepare({title, sansSerifFont, serifFont, monospaceFont}) {
+      const fonts = [sansSerifFont, serifFont, monospaceFont].filter(Boolean)
+      const fontDisplay = fonts.length > 0 ? fonts.join(', ') : 'No fonts selected'
+
       return {
         title: title || 'Untitled Typography',
-        subtitle: `Font: ${fontFamily || 'system-ui'}`,
+        subtitle: `Fonts: ${fontDisplay}`,
         media: TextIcon,
       }
     },

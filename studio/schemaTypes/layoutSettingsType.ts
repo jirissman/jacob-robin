@@ -1,5 +1,6 @@
 import {defineType, defineField} from 'sanity'
 import {DashboardIcon} from '@sanity/icons'
+import {DEFAULT_LAYOUT, LAYOUT_WIDTH_OPTIONS} from '../../shared/defaults'
 
 export const layoutSettingsType = defineType({
   name: 'layoutSettings',
@@ -20,16 +21,9 @@ export const layoutSettingsType = defineType({
       title: 'Maximum Width',
       type: 'string',
       options: {
-        list: [
-          {title: 'Small (768px)', value: '768px'},
-          {title: 'Medium (1024px)', value: '1024px'},
-          {title: 'Large (1280px)', value: '1280px'},
-          {title: 'Extra Large (1536px)', value: '1536px'},
-          {title: 'Full Width', value: '100%'},
-          {title: 'Custom', value: 'custom'},
-        ],
+        list: LAYOUT_WIDTH_OPTIONS,
       },
-      initialValue: '1280px',
+      initialValue: DEFAULT_LAYOUT.maxWidth,
       description: 'Maximum width for main content area',
       validation: (rule) => rule.required(),
     }),
@@ -49,7 +43,7 @@ export const layoutSettingsType = defineType({
     prepare({title, maxWidth}) {
       return {
         title: title || 'Untitled Layout',
-        subtitle: `Max width: ${maxWidth || '1280px'}`,
+        subtitle: `Max width: ${maxWidth || DEFAULT_LAYOUT.maxWidth}`,
         media: DashboardIcon,
       }
     },

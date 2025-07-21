@@ -10,27 +10,54 @@ import type {
 import groq from "groq";
 
 export async function getDarkTheme() {
-  return (await sanityClient.fetch(
-    groq`*[_type == "activeStyle"][0]{activeConfigDark->}`
-  )) as DarkTheme;
+  const result = await sanityClient.fetch(
+    groq`*[_type == "activeStyle"][0].activeConfigDark->{
+      "primaryColor": primaryColor.hex,
+      "secondaryColor": secondaryColor.hex,
+      "backgroundColor": backgroundColor.hex,
+      "surfaceColor": surfaceColor.hex,
+      "textColor": textColor.hex,
+      "borderColor": borderColor.hex
+    }`
+  );
+  return result as DarkTheme;
 }
 
 export async function getLightTheme() {
-  return (await sanityClient.fetch(
-    groq`*[_type == "activeStyle"][0]{activeConfigLight->}`
-  )) as LightTheme;
+  const result = await sanityClient.fetch(
+    groq`*[_type == "activeStyle"][0].activeConfigLight->{
+      "primaryColor": primaryColor.hex,
+      "secondaryColor": secondaryColor.hex,
+      "backgroundColor": backgroundColor.hex,
+      "surfaceColor": surfaceColor.hex,
+      "textColor": textColor.hex,
+      "borderColor": borderColor.hex
+    }`
+  );
+  return result as LightTheme;
 }
 
 export async function getTypography() {
-  return (await sanityClient.fetch(
-    groq`*[_type == "activeStyle"][0]{activeTypography->}`
-  )) as Typography;
+  const result = await sanityClient.fetch(
+    groq`*[_type == "activeStyle"][0].activeTypography->{
+      sansSerifFont,
+      serifFont,
+      monospaceFont,
+      fontSize,
+      lineHeight
+    }`
+  );
+  return result as Typography;
 }
 
 export async function getLayoutSettings() {
-  return (await sanityClient.fetch(
-    groq`*[_type == "activeStyle"][0]{activeLayout->}`
-  )) as LayoutSettings;
+  const result = await sanityClient.fetch(
+    groq`*[_type == "activeStyle"][0].activeLayout->{
+      maxWidth,
+      customMaxWidth
+    }`
+  );
+  return result as LayoutSettings;
 }
 
 export async function getPosts() {

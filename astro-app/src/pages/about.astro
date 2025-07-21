@@ -3,27 +3,27 @@ import Layout from "../layouts/Layout.astro";
 import { PortableText } from "astro-portabletext";
 import { urlFor } from "../utils/image";
 import { getAbout } from "../utils/sanity";
+import { type Image } from "sanity";
 
 const about = await getAbout();
 ---
 
-<Layout title={`${about.title} | Creative Writer & Storyteller`}>
+<Layout title={`${about.title}`}>
   <section class="about">
     <div class="about__layout">
       {
         about.image ? (
           <div class="about__image">
             <img
-              src={urlFor(about.image).url()}
+              src={urlFor(about.image as Image).url()}
               alt={about.image.alt || "About image"}
             />
           </div>
         ) : null
       }
       <div class="about__content">
-        <h1 class="about__title">{about.title}</h1>
         <div class="about__text">
-          <PortableText value={about.body} />
+          <PortableText value={about.body!} />
         </div>
       </div>
     </div>

@@ -5,7 +5,9 @@ export function themeColorFields(initialValues: {
   primaryColor: string
   secondaryColor: string
   backgroundColor: string
+  surfaceColor: string
   textColor: string
+  borderColor: string
 }) {
   return [
     defineField({
@@ -37,11 +39,25 @@ export function themeColorFields(initialValues: {
       initialValue: initialValues.backgroundColor,
     }),
     defineField({
+      name: 'surfaceColor',
+      title: 'Surface Color',
+      type: 'color',
+      description: 'Color for elevated surfaces like cards, headers, etc.',
+      initialValue: initialValues.surfaceColor,
+    }),
+    defineField({
       name: 'textColor',
       title: 'Text Color',
       type: 'color',
       description: 'Primary text color',
       initialValue: initialValues.textColor,
+    }),
+    defineField({
+      name: 'borderColor',
+      title: 'Border Color',
+      type: 'color',
+      description: 'Color for borders and dividers',
+      initialValue: initialValues.borderColor,
     }),
   ]
 }

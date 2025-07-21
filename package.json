@@ -2,7 +2,8 @@
   "name": "jacob-robin",
   "description": "Jacob Robin",
   "scripts": {
-    "dev": "concurrently \"npm run dev --workspace=astro-app\" \"npm run dev --workspace=studio\""
+    "dev": "concurrently \"npm run dev --workspace=astro-app\" \"npm run dev --workspace=studio\"",
+    "typegen": "npm run typegen --workspace=studio"
   },
   "keywords": [
     "Sanity",
@@ -21,7 +22,9 @@
     "astro-app"
   ],
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "@tailwindcss/typography": "^0.5.16",
+    "concurrently": "^9.1.0",
+    "tailwindcss": "^4.1.11"
   },
   "type": "module"
 }

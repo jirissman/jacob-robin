@@ -289,15 +289,11 @@
         },
         "optional": true
       },
-      "fontFamily": {
+      "sansSerifFont": {
         "type": "objectAttribute",
         "value": {
           "type": "union",
           "of": [
-            {
-              "type": "string",
-              "value": "system-ui"
-            },
             {
               "type": "string",
               "value": "Inter"
@@ -316,6 +312,23 @@
             },
             {
               "type": "string",
+              "value": "Arial"
+            },
+            {
+              "type": "string",
+              "value": "Helvetica"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "serifFont": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
               "value": "Merriweather"
             },
             {
@@ -324,16 +337,54 @@
             },
             {
               "type": "string",
-              "value": "custom"
+              "value": "Georgia"
+            },
+            {
+              "type": "string",
+              "value": "Times New Roman"
+            },
+            {
+              "type": "string",
+              "value": "Crimson Text"
+            },
+            {
+              "type": "string",
+              "value": "Lora"
             }
           ]
         },
         "optional": true
       },
-      "customFontFamily": {
+      "monospaceFont": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "Fira Code"
+            },
+            {
+              "type": "string",
+              "value": "Source Code Pro"
+            },
+            {
+              "type": "string",
+              "value": "Monaco"
+            },
+            {
+              "type": "string",
+              "value": "Consolas"
+            },
+            {
+              "type": "string",
+              "value": "JetBrains Mono"
+            },
+            {
+              "type": "string",
+              "value": "Courier New"
+            }
+          ]
         },
         "optional": true
       },
@@ -435,7 +486,23 @@
         },
         "optional": true
       },
+      "surfaceColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
       "textColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "borderColor": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",
@@ -511,7 +578,23 @@
         },
         "optional": true
       },
+      "surfaceColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
       "textColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "borderColor": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",

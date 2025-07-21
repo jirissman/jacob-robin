@@ -1,6 +1,7 @@
 import {defineType} from 'sanity'
 import {DropIcon} from '@sanity/icons'
 import {themeColorFields} from './blocks/themeColorFields'
+import {DEFAULT_COLORS} from '../../shared/defaults'
 
 export const lightThemeType = defineType({
   name: 'lightTheme',
@@ -9,10 +10,12 @@ export const lightThemeType = defineType({
   description: 'Color configuration for light theme',
   icon: DropIcon,
   fields: themeColorFields({
-    primaryColor: '#2563eb', // Default light primary color
-    secondaryColor: '#f59e0b', // Default light secondary color
-    backgroundColor: '#ffffff', // Default light background color
-    textColor: '#111827', // Default light text color
+    primaryColor: DEFAULT_COLORS.light.primaryColor,
+    secondaryColor: DEFAULT_COLORS.light.secondaryColor,
+    backgroundColor: DEFAULT_COLORS.light.backgroundColor,
+    surfaceColor: DEFAULT_COLORS.light.surfaceColor,
+    textColor: DEFAULT_COLORS.light.textColor,
+    borderColor: DEFAULT_COLORS.light.borderColor,
   }),
   preview: {
     select: {
@@ -34,10 +37,12 @@ export const darkThemeType = defineType({
   description: 'Color configuration for dark theme',
   icon: DropIcon,
   fields: themeColorFields({
-    primaryColor: '#2563eb', // Default dark primary color
-    secondaryColor: '#f59e0b', // Default dark secondary color
-    backgroundColor: '#111827', // Default dark background color
-    textColor: '#f9fafb', // Default dark text color
+    primaryColor: DEFAULT_COLORS.dark.primaryColor,
+    secondaryColor: DEFAULT_COLORS.dark.secondaryColor,
+    backgroundColor: DEFAULT_COLORS.dark.backgroundColor,
+    surfaceColor: DEFAULT_COLORS.dark.surfaceColor,
+    textColor: DEFAULT_COLORS.dark.textColor,
+    borderColor: DEFAULT_COLORS.dark.borderColor,
   }),
   preview: {
     select: {
