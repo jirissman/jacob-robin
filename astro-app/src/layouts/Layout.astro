@@ -173,12 +173,6 @@ const layout = await getLayoutSettings();
     --max-width-1: 768px;
   }
 
-  html {
-    background-color: var(--background-color);
-    font-family: var(--font-family-sans), var(--font-family-serif), sans-serif;
-    text-size-adjust: 100%;
-  }
-
   :root,
   :root[data-theme="light"] {
     --primary-color: var(--color-primary-light);
@@ -214,7 +208,11 @@ const layout = await getLayoutSettings();
 
     color-scheme: dark;
   }
-
+  html {
+    background-color: var(--background-color);
+    font-family: var(--font-family-sans), var(--font-family-serif), sans-serif;
+    text-size-adjust: 100%;
+  }
   body {
     margin: 0;
     background-color: var(--background-color);
