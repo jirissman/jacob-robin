@@ -20,11 +20,7 @@ const DefaultBlock = getDefaultComponent(); // Returns `astro-portabletext` Bloc
     <p {...attrs}>
       {render({
         text: ({ props }) =>
-          props.node.text === "" && props.node.text.length === 1 ? (
-            <br />
-          ) : (
-            props.node.text
-          ),
+          props.node.text === "" ? <br /> : props.node.text,
       })}
     </p>
   ) : (
