@@ -1,0 +1,35 @@
+---
+/**
+ * This `Block` component customizes the rendering of `p` blocks to replace empty paragraphs
+ * with a `<br />` element, while other block styles are rendered using the default component.
+ */
+import type { BlockProps } from "astro-portabletext/types";
+import { usePortableText } from "astro-portabletext";
+
+type Props = BlockProps;
+
+const { node, isInline, index, ...attrs } = Astro.props;
+const { getDefaultComponent, render } = usePortableText(node);
+const styleIs = (style: string) => style === node.style;
+
+const DefaultBlock = getDefaultComponent(); // Returns `astro-portabletext` Block component
+---
+
+{
+  styleIs("normal") ? (
+    <p {...attrs}>
+      {render({
+        text: ({ props }) =>
+          props.node.text === "" && props.node.text.length === 1 ? (
+            <br />
+          ) : (
+            props.node.text
+          ),
+      })}
+    </p>
+  ) : (
+    <DefaultBlock {...Astro.props}>
+      <slot />
+    </DefaultBlock>
+  )
+}

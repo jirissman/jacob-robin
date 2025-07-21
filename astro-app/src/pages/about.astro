@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Block from "../components/Block.astro";
 import { PortableText } from "astro-portabletext";
 import { urlFor } from "../utils/image";
 import { getAbout } from "../utils/sanity";
@@ -28,7 +29,7 @@ if (!about) {
       }
       <div class="about__content">
         <div class="about__text">
-          <PortableText value={about.body!} />
+          <PortableText value={about.body!} components={{ block: Block }} />
         </div>
       </div>
     </div>
@@ -37,8 +38,8 @@ if (!about) {
 
 <style>
   .about {
-    padding: var(--space-8) var(--space-3) var(--space-6);
-    max-width: 700px;
+    padding: var(--space-6);
+    max-width: 1024px;
     margin: 0 auto;
     line-height: 1.7;
   }
@@ -50,7 +51,7 @@ if (!about) {
   }
 
   .about__image {
-    flex: 0 0 300px;
+    flex: 1 0 300px;
     margin: 0;
   }
 
@@ -132,7 +133,7 @@ if (!about) {
     color: var(--text-secondary);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     .about__layout {
       flex-direction: column;
       gap: var(--space-4);
