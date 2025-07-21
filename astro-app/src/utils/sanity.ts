@@ -41,9 +41,9 @@ const LAYOUT_SETTINGS_QUERY = groq`*[_type == "activeStyle"][0].activeLayout->{
   customMaxWidth
 }`;
 
-const POSTS_QUERY = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`;
+const POSTS_QUERY = groq`*[_type == "post" && defined(slug.current)]{..., "categories": categories[]->name, "tags": tags[]->name} | order(_createdAt desc)`;
 
-const POST_BY_SLUG_QUERY = groq`*[_type == "post" && slug.current == $slug][0]`;
+const POST_BY_SLUG_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{..., "categories": categories[]->name, "tags": tags[]->name}`;
 
 const ABOUT_QUERY = groq`*[_type == "about"][0]`;
 

@@ -1,12 +1,6 @@
 ---
 import { formatDate } from "../utils";
 import { urlFor } from "../utils/image";
-import type { Post } from "../../../shared/sanity.types";
-import { type Image } from "sanity";
-
-interface Props {
-  post: Post;
-}
 
 const { post } = Astro.props;
 ---
@@ -16,10 +10,7 @@ const { post } = Astro.props;
     post.mainImage ? (
       <img
         class="card__cover"
-        src={urlFor(post.mainImage as Image)
-          .width(500)
-          .height(300)
-          .url()}
+        src={urlFor(post.mainImage).width(500).height(300).url()}
         alt={post.mainImage.alt || ""}
       />
     ) : (
@@ -32,9 +23,11 @@ const { post } = Astro.props;
         {post.title}
       </a>
     </h3>
-    <p class="card__excerpt">{post.excerpt}</p>
+    <p class="card__categories">
+      {(post.categories ?? []).join(" • ")}
+    </p>
     <p class="card__date">
-      {formatDate(post._createdAt)}
+      {formatDate(post.publishedAt)}
     </p>
   </div>
 </div>
@@ -90,7 +83,7 @@ const { post } = Astro.props;
       color: var(--text-primary);
     }
 
-    & .card__excerpt {
+    & .card__categories {
       font-family: var(--font-family-sans);
       font-weight: 400;
       font-size: var(--font-size-2);

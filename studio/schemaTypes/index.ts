@@ -1,6 +1,8 @@
 import {type SchemaTypeDefinition} from 'sanity'
 import {aboutType} from './aboutType'
 import {blockContentType} from './blocks/blockContentType'
+import {tagType} from './blocks/tagType'
+import {categoryType} from './blocks/categoryType'
 import {postType} from './documents/postType'
 import {activeStyleType} from './activeStyleType'
 import {lightThemeType, darkThemeType} from './themeColorsType'
@@ -12,6 +14,8 @@ export const schemaTypes: {types: SchemaTypeDefinition[]} = {
     aboutType,
     postType,
     blockContentType,
+    tagType,
+    categoryType,
     activeStyleType,
     lightThemeType,
     darkThemeType,

@@ -104,6 +104,26 @@ export type LightTheme = {
   borderColor?: Color;
 };
 
+export type Category = {
+  _id: string;
+  _type: "category";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+};
+
+export type Tag = {
+  _id: string;
+  _type: "tag";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+};
+
 export type BlockContent = Array<{
   children?: Array<{
     marks?: Array<string>;
@@ -143,7 +163,20 @@ export type Post = {
   _rev: string;
   title?: string;
   slug?: Slug;
-  excerpt?: string;
+  categories?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "category";
+  }>;
+  tags?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "tag";
+  }>;
   mainImage?: {
     asset?: {
       _ref: string;
@@ -351,7 +384,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = ActiveStyle | LayoutSettings | Typography | DarkTheme | LightTheme | BlockContent | Post | About | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = ActiveStyle | LayoutSettings | Typography | DarkTheme | LightTheme | Category | Tag | BlockContent | Post | About | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../astro-app/src/utils/sanity.ts
 // Variable: DARK_THEME_QUERY
@@ -393,7 +426,7 @@ export type LAYOUT_SETTINGS_QUERYResult = {
   customMaxWidth: string | null;
 } | null;
 // Variable: POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)] | order(_createdAt desc)
+// Query: *[_type == "post" && defined(slug.current)]{..., "categories": categories[]->name} | order(_createdAt desc)
 export type POSTS_QUERYResult = Array<{
   _id: string;
   _type: "post";
@@ -402,7 +435,14 @@ export type POSTS_QUERYResult = Array<{
   _rev: string;
   title?: string;
   slug?: Slug;
-  excerpt?: string;
+  categories: Array<string | null> | null;
+  tags?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "tag";
+  }>;
   mainImage?: {
     asset?: {
       _ref: string;
@@ -428,7 +468,20 @@ export type POST_BY_SLUG_QUERYResult = {
   _rev: string;
   title?: string;
   slug?: Slug;
-  excerpt?: string;
+  categories?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "category";
+  }>;
+  tags?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "tag";
+  }>;
   mainImage?: {
     asset?: {
       _ref: string;
@@ -494,7 +547,7 @@ declare module "@sanity/client" {
     "*[_type == \"activeStyle\"][0].activeConfigLight->{\n  \"primaryColor\": primaryColor.hex,\n  \"secondaryColor\": secondaryColor.hex,\n  \"backgroundColor\": backgroundColor.hex,\n  \"surfaceColor\": surfaceColor.hex,\n  \"textColor\": textColor.hex,\n  \"borderColor\": borderColor.hex\n}": LIGHT_THEME_QUERYResult;
     "*[_type == \"activeStyle\"][0].activeTypography->{\n  sansSerifFont,\n  serifFont,\n  monospaceFont,\n  fontSize,\n  lineHeight\n}": TYPOGRAPHY_QUERYResult;
     "*[_type == \"activeStyle\"][0].activeLayout->{\n  maxWidth,\n  customMaxWidth\n}": LAYOUT_SETTINGS_QUERYResult;
-    "*[_type == \"post\" && defined(slug.current)] | order(_createdAt desc)": POSTS_QUERYResult;
+    "*[_type == \"post\" && defined(slug.current)]{..., \"categories\": categories[]->name} | order(_createdAt desc)": POSTS_QUERYResult;
     "*[_type == \"post\" && slug.current == $slug][0]": POST_BY_SLUG_QUERYResult;
     "*[_type == \"about\"][0]": ABOUT_QUERYResult;
   }
