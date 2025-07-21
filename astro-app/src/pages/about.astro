@@ -6,6 +6,11 @@ import { getAbout } from "../utils/sanity";
 import { type Image } from "sanity";
 
 const about = await getAbout();
+
+// Redirect to 404 if about content is not found
+if (!about) {
+  return Astro.redirect("/404");
+}
 ---
 
 <Layout title={`${about.title}`}>
