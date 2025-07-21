@@ -25,7 +25,7 @@ export const DEFAULT_COLORS = {
 
 export const DEFAULT_TYPOGRAPHY = {
   sansSerifFont: "Inter",
-  serifFont: "PT Serif",
+  serifFont: "Merriweather",
   monospaceFont: "Fira Code",
   fontSize: {
     mobile: 16,
