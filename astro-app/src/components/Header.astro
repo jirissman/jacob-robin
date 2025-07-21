@@ -1,5 +1,6 @@
 ---
 // Header component
+import { ThemeToggleButton } from "../components";
 ---
 
 <header class="header">
@@ -8,6 +9,7 @@
   </div>
   <nav class="nav">
     <a class="nav__link" href="/about">About</a>
+    <ThemeToggleButton />
   </nav>
 </header>
 
@@ -17,8 +19,8 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--space-4) var(--space-6);
-    border-bottom: 1px solid var(--gray-200);
-    background: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--surface-color);
     position: fixed;
     left: 0;
     right: 0;
@@ -33,11 +35,11 @@
       font-weight: 700;
       font-size: var(--font-size-3);
       text-decoration: none;
-      color: var(--black);
+      color: var(--text-primary);
       transition: color 0.2s ease;
 
       &:hover {
-        color: var(--blue-600);
+        color: var(--primary-color);
       }
     }
 
@@ -51,11 +53,11 @@
       font-weight: 500;
       font-size: var(--font-size-2);
       text-decoration: none;
-      color: var(--black);
+      color: var(--text-primary);
       transition: color 0.2s ease;
 
       &:hover {
-        color: var(--blue-600);
+        color: var(--primary-color);
       }
 
       &--home {
@@ -73,7 +75,7 @@
   @media (min-width: 575px) {
     .header {
       position: fixed;
-      border-bottom: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--border-color);
 
       & .brand__link {
         font-size: var(--font-size-4);

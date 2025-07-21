@@ -1,14 +1,29 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import { Header, Footer, ThemeManager } from "../components";
+import "../styles/global.css";
+import {
+  getDarkTheme,
+  getLayoutSettings,
+  getLightTheme,
+  getTypography,
+} from "../utils/sanity";
+import {
+  DEFAULT_COLORS,
+  DEFAULT_TYPOGRAPHY,
+  DEFAULT_LAYOUT,
+} from "../../../shared/defaults";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const darkTheme = await getDarkTheme();
+const lightTheme = await getLightTheme();
+const typography = await getTypography();
+const layout = await getLayoutSettings();
 ---
 
 <!doctype html>
@@ -29,6 +44,7 @@ const { title } = Astro.props;
 
     <title>{title}</title>
     <ClientRouter />
+    <ThemeManager defaultTheme="auto" />
   </head>
   <body>
     <div class="container">
@@ -63,7 +79,50 @@ const { title } = Astro.props;
   }
 </style>
 
-<style is:global>
+<style
+  is:global
+  define:vars={{
+    // Light theme colors
+    "color-primary-light":
+      lightTheme?.primaryColor || DEFAULT_COLORS.light.primaryColor,
+    "color-secondary-light":
+      lightTheme?.secondaryColor || DEFAULT_COLORS.light.secondaryColor,
+    "color-background-light":
+      lightTheme?.backgroundColor || DEFAULT_COLORS.light.backgroundColor,
+    "color-surface-light":
+      lightTheme?.surfaceColor || DEFAULT_COLORS.light.surfaceColor,
+    "color-text-light": lightTheme?.textColor || DEFAULT_COLORS.light.textColor,
+    // Dark theme colors
+    "color-primary-dark":
+      darkTheme?.primaryColor || DEFAULT_COLORS.dark.primaryColor,
+    "color-secondary-dark":
+      darkTheme?.secondaryColor || DEFAULT_COLORS.dark.secondaryColor,
+    "color-background-dark":
+      darkTheme?.backgroundColor || DEFAULT_COLORS.dark.backgroundColor,
+    "color-surface-dark":
+      darkTheme?.surfaceColor || DEFAULT_COLORS.dark.surfaceColor,
+    "color-text-dark": darkTheme?.textColor || DEFAULT_COLORS.dark.textColor,
+    // Border colors
+    "color-border-light":
+      lightTheme?.borderColor || DEFAULT_COLORS.light.borderColor,
+    "color-border-dark":
+      darkTheme?.borderColor || DEFAULT_COLORS.dark.borderColor,
+    // Typography variables
+    "font-sans": typography?.sansSerifFont || DEFAULT_TYPOGRAPHY.sansSerifFont,
+    "font-serif": typography?.serifFont || DEFAULT_TYPOGRAPHY.serifFont,
+    "font-mono": typography?.monospaceFont || DEFAULT_TYPOGRAPHY.monospaceFont,
+    "font-size-mobile":
+      typography?.fontSize?.mobile || DEFAULT_TYPOGRAPHY.fontSize.mobile,
+    "font-size-desktop":
+      typography?.fontSize?.desktop || DEFAULT_TYPOGRAPHY.fontSize.desktop,
+    "line-height": typography?.lineHeight || DEFAULT_TYPOGRAPHY.lineHeight,
+    // Layout settings
+    "max-width-custom":
+      layout?.maxWidth == "custom"
+        ? layout?.customMaxWidth || DEFAULT_LAYOUT.customMaxWidth
+        : layout?.maxWidth || DEFAULT_LAYOUT.maxWidth,
+  }}
+>
   :root {
     --space-0: 0;
     --space-1: 4px;
@@ -76,9 +135,9 @@ const { title } = Astro.props;
     --space-8: 136px;
     --space-9: 220px;
 
-    --font-family-sans: Inter;
-    --font-family-serif: PT Serif;
-    --font-family-mono: IMB Plex Mono;
+    --font-family-sans: var(--font-sans), Inter;
+    --font-family-serif: var(--font-serif), Times New Roman;
+    --font-family-mono: var(--font-mono), IBM Plex Mono;
 
     --font-size-0: 12px;
     --font-size-1: 14px;
@@ -106,10 +165,7 @@ const { title } = Astro.props;
     --line-height-11: 96px;
     --line-height-12: 128px;
 
-    --white: #fff;
-    --black: #101112;
-    --gray-200: #ced2d9;
-    --gray-600: #6e7683;
+    /* Static colors - don't change with theme */
     --blue-600: #1e61cd;
     --magenta-100: #f9d7eb;
 
@@ -117,13 +173,49 @@ const { title } = Astro.props;
     --max-width-1: 768px;
   }
 
+  :root,
+  :root[data-theme="light"] {
+    --primary-color: var(--color-primary-light);
+    --secondary-color: var(--color-secondary-light);
+    --background-color: var(--color-background-light);
+    --surface-color: var(--color-surface-light);
+    --text-color: var(--color-text-light);
+    --border-color: var(--color-border-light);
+
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --primary-color: var(--color-primary-dark);
+      --secondary-color: var(--color-secondary-dark);
+      --background-color: var(--color-background-dark);
+      --surface-color: var(--color-surface-dark);
+      --text-color: var(--color-text-dark);
+      --border-color: var(--color-border-dark);
+
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --primary-color: var(--color-primary-dark);
+    --secondary-color: var(--color-secondary-dark);
+    --background-color: var(--color-background-dark);
+    --surface-color: var(--color-surface-dark);
+    --text-color: var(--color-text-dark);
+    --border-color: var(--color-border-dark);
+
+    color-scheme: dark;
+  }
   html {
-    background-color: var(--white);
+    background-color: var(--background-color);
     font-family: var(--font-family-sans), var(--font-family-serif), sans-serif;
     text-size-adjust: 100%;
   }
-
   body {
     margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
   }
 </style>

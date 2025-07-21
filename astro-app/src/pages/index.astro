@@ -6,7 +6,7 @@ import { getPosts } from "../utils/sanity";
 const posts = await getPosts();
 ---
 
-<Layout title="Creative Writer & Storyteller">
+<Layout title="Jacob Robin | Creative Writer & Storyteller">
   {
     posts.length > 0 && (
       <section class="posts">
@@ -36,7 +36,7 @@ const posts = await getPosts();
   .posts__title {
     font-size: var(--font-size-6);
     font-weight: 700;
-    color: var(--black);
+    color: var(--text-primary);
     margin: 0;
     font-family: var(--font-family-serif);
   }
