@@ -1,4 +1,4 @@
-import {defineConfig} from 'sanity'
+import {defineConfig, isDev} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {colorInput} from '@sanity/color-input'
@@ -11,6 +11,8 @@ export default defineConfig({
   title: 'Jacob Robin Studio',
   projectId,
   dataset,
-  plugins: [structureTool({structure}), visionTool(), colorInput()],
+  plugins: isDev
+    ? [structureTool({structure}), colorInput(), visionTool()]
+    : [structureTool({structure}), colorInput()],
   schema: schemaTypes,
 })
