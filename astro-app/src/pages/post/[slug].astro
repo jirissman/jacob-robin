@@ -2,7 +2,7 @@
 import type { InferGetStaticParamsType } from "astro";
 import { PortableText } from "astro-portabletext";
 import Layout from "../../layouts/Layout.astro";
-import { formatDate } from "../../utils";
+import dayjs from "dayjs";
 import { urlFor } from "../../utils/image";
 import { getPost, getPosts } from "../../utils/sanity";
 import { type Image } from "sanity";
@@ -28,6 +28,9 @@ const post = await getPost(slug);
 if (!post) {
   return new Response(null, { status: 404 });
 }
+
+// TODO: Add meta description, Open Graph tags, and Schema.org structured data for SEO
+// TODO: Consider extracting repeated magic numbers (750, 380, 200) to CSS custom properties
 ---
 
 <Layout title={post.title!}>
@@ -36,8 +39,14 @@ if (!post) {
       post.mainImage ? (
         <img
           class="post__cover"
-          src={urlFor(post.mainImage as Image).url()}
-          alt="Cover image"
+          src={urlFor(post.mainImage as Image)
+            .width(750)
+            .height(380)
+            .url()}
+          alt={post.mainImage?.alt || post.title || "Cover image"}
+          loading="lazy"
+          width="750"
+          height="380"
         />
       ) : (
         <div class="post__cover--none" />
@@ -45,13 +54,27 @@ if (!post) {
     }
     <div class="post__container">
       <h1 class="post__title">{post.title}</h1>
-      <p class="post__excerpt">{post.excerpt}</p>
+      <!-- TODO: Add estimated reading time calculation -->
+      <!-- TODO: Add social sharing buttons -->
+      {
+        (post.categories?.length || post.tags?.length) && (
+          <div class="post__meta-tags">
+            {post.categories?.map((category) => (
+              <span class="post__category-tag">{category}</span>
+            ))}
+            {post.tags?.map((tag) => (
+              <span class="post__tag">{tag}</span>
+            ))}
+          </div>
+        )
+      }
       <p class="post__date">
-        {formatDate(post._createdAt)}
+        {dayjs(post.publishedAt).format("MMMM D, YYYY")}
       </p>
       <div class="post__content">
         <PortableText value={post.body!} />
       </div>
+      <!-- TODO: Add prev/next post navigation -->
     </div>
   </section>
 
@@ -119,6 +142,28 @@ if (!post) {
         line-height: var(--line-height-1);
         margin-top: var(--space-4);
       }
+
+      & .post__meta-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        margin: var(--space-3) 0;
+      }
+
+      & .post__category-tag,
+      & .post__tag {
+        display: inline-block;
+        padding: var(--space-1) var(--space-2);
+        font-family: var(--font-family-sans);
+        font-size: var(--font-size-1);
+        font-weight: 600;
+        border-radius: 4px; /* TODO: Extract magic number to CSS custom property */
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+        background-color: var(--surface-color);
+        color: var(--text-primary);
+        /* TODO: Add focus states for better accessibility */
+      }
     }
 
     @media (min-width: 800px) {
@@ -151,6 +196,16 @@ if (!post) {
 
         & .post__content {
           margin-top: var(--space-7);
+        }
+
+        & .post__meta-tags {
+          margin: var(--space-4) 0;
+        }
+
+        & .post__category-tag,
+        & .post__tag {
+          font-size: var(--font-size-2);
+          padding: var(--space-2) var(--space-3);
         }
       }
     }
