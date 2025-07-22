@@ -8,26 +8,14 @@ import { urlFor } from "../../utils/image";
 import { getPost, getPosts } from "../../utils/sanity";
 import { type Image } from "sanity";
 
-export const prerender = true;
-
-export async function getStaticPaths() {
-  const posts = await getPosts();
-  return posts.map((post) => ({
-    params: { slug: post.slug!.current },
-  }));
-}
-
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-const { slug } = Astro.params as Params;
-
+const { slug } = Astro.params;
 if (!slug) {
   return Astro.redirect("/404");
 }
 
 const post = await getPost(slug);
-// Redirect to 404 if post is not found
 if (!post) {
-  return new Response(null, { status: 404 });
+  return Astro.redirect("/404");
 }
 
 // TODO: Add meta description, Open Graph tags, and Schema.org structured data for SEO
@@ -89,7 +77,7 @@ if (!post) {
       & .post__cover,
       & .post__cover--none {
         width: 100%;
-        
+
         object-fit: cover;
       }
 
