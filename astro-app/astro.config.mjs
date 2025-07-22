@@ -23,6 +23,7 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://jacob-robin.vercel.app",
   // Server+adapter is required to support embedded Sanity Studio
   output: "server",
   adapter: vercel(),
