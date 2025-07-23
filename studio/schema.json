@@ -462,7 +462,7 @@
         },
         "optional": true
       },
-      "primaryColor": {
+      "textHoverColor": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",
@@ -746,7 +746,7 @@
         },
         "optional": true
       },
-      "primaryColor": {
+      "textHoverColor": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",

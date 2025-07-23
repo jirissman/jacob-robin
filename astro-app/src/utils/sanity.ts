@@ -11,7 +11,7 @@ import type {
 import groq from "groq";
 
 const DARK_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigDark->{
-  "primaryColor": primaryColor.hex,
+  "textHoverColor": textHoverColor.hex,
   "secondaryColor": secondaryColor.hex,
   "backgroundColor": backgroundColor.hex,
   "surfaceColor": surfaceColor.hex,
@@ -44,7 +44,7 @@ const DARK_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigDark->{
 }`;
 
 const LIGHT_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigLight->{
-  "primaryColor": primaryColor.hex,
+  "textHoverColor": textHoverColor.hex,
   "secondaryColor": secondaryColor.hex,
   "backgroundColor": backgroundColor.hex,
   "surfaceColor": surfaceColor.hex,

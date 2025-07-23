@@ -83,30 +83,26 @@ const layout = await getLayoutSettings();
   is:global
   define:vars={{
     // Light theme colors
-    "color-primary-light":
-      lightTheme?.primaryColor || DEFAULT_COLORS.light.primaryColor,
-    "color-secondary-light":
-      lightTheme?.secondaryColor || DEFAULT_COLORS.light.secondaryColor,
     "color-background-light":
       lightTheme?.backgroundColor || DEFAULT_COLORS.light.backgroundColor,
     "color-surface-light":
       lightTheme?.surfaceColor || DEFAULT_COLORS.light.surfaceColor,
+    "color-border-light":
+      lightTheme?.borderColor || DEFAULT_COLORS.light.borderColor,
     "color-text-light": lightTheme?.textColor || DEFAULT_COLORS.light.textColor,
+    "color-text-hover-light":
+      lightTheme?.textHoverColor || DEFAULT_COLORS.light.textHoverColor,
     // Dark theme colors
-    "color-primary-dark":
-      darkTheme?.primaryColor || DEFAULT_COLORS.dark.primaryColor,
-    "color-secondary-dark":
-      darkTheme?.secondaryColor || DEFAULT_COLORS.dark.secondaryColor,
     "color-background-dark":
       darkTheme?.backgroundColor || DEFAULT_COLORS.dark.backgroundColor,
     "color-surface-dark":
       darkTheme?.surfaceColor || DEFAULT_COLORS.dark.surfaceColor,
-    "color-text-dark": darkTheme?.textColor || DEFAULT_COLORS.dark.textColor,
-    // Border colors
-    "color-border-light":
-      lightTheme?.borderColor || DEFAULT_COLORS.light.borderColor,
     "color-border-dark":
       darkTheme?.borderColor || DEFAULT_COLORS.dark.borderColor,
+    "color-text-dark": darkTheme?.textColor || DEFAULT_COLORS.dark.textColor,
+    "color-text-hover-dark":
+      darkTheme?.textHoverColor || DEFAULT_COLORS.dark.textHoverColor,
+
     // Card colors - Light theme
     "color-card-border-light":
       lightTheme?.cardBorderColor ||
@@ -176,12 +172,12 @@ const layout = await getLayoutSettings();
       DEFAULT_COLORS.light.textColor,
     "color-title-text-hover-light":
       lightTheme?.titleTextHoverColor ||
-      lightTheme?.primaryColor ||
-      DEFAULT_COLORS.light.primaryColor,
+      lightTheme?.textHoverColor ||
+      DEFAULT_COLORS.light.textHoverColor,
     "color-nav-text-hover-light":
       lightTheme?.navTextHoverColor ||
-      lightTheme?.primaryColor ||
-      DEFAULT_COLORS.light.primaryColor,
+      lightTheme?.textHoverColor ||
+      DEFAULT_COLORS.light.textHoverColor,
     // Header colors - Dark theme
     "color-header-background-dark":
       darkTheme?.headerBackgroundColor ||
@@ -201,12 +197,12 @@ const layout = await getLayoutSettings();
       DEFAULT_COLORS.dark.textColor,
     "color-title-text-hover-dark":
       darkTheme?.titleTextHoverColor ||
-      darkTheme?.primaryColor ||
-      DEFAULT_COLORS.dark.primaryColor,
+      darkTheme?.textHoverColor ||
+      DEFAULT_COLORS.dark.textHoverColor,
     "color-nav-text-hover-dark":
       darkTheme?.navTextHoverColor ||
-      darkTheme?.primaryColor ||
-      DEFAULT_COLORS.dark.primaryColor,
+      darkTheme?.textHoverColor ||
+      DEFAULT_COLORS.dark.textHoverColor,
     // Footer colors - Light theme
     "color-footer-text-light":
       lightTheme?.footerTextColor ||
@@ -218,8 +214,8 @@ const layout = await getLayoutSettings();
       DEFAULT_COLORS.light.textColor,
     "color-footer-link-hover-light":
       lightTheme?.footerLinkHoverColor ||
-      lightTheme?.primaryColor ||
-      DEFAULT_COLORS.light.primaryColor,
+      lightTheme?.textHoverColor ||
+      DEFAULT_COLORS.light.textHoverColor,
     "color-footer-border-light":
       lightTheme?.footerBorderColor ||
       lightTheme?.borderColor ||
@@ -229,14 +225,11 @@ const layout = await getLayoutSettings();
       darkTheme?.footerTextColor ||
       darkTheme?.textColor ||
       DEFAULT_COLORS.dark.textColor,
-    "color-footer-link-dark":
-      darkTheme?.footerLinkColor ||
-      darkTheme?.textColor ||
-      DEFAULT_COLORS.dark.textColor,
+    "color-footer-link-dark": darkTheme?.footerLinkColor,
     "color-footer-link-hover-dark":
       darkTheme?.footerLinkHoverColor ||
-      darkTheme?.primaryColor ||
-      DEFAULT_COLORS.dark.primaryColor,
+      darkTheme?.textHoverColor ||
+      DEFAULT_COLORS.dark.textHoverColor,
     "color-footer-border-dark":
       darkTheme?.footerBorderColor ||
       darkTheme?.borderColor ||
@@ -260,8 +253,8 @@ const layout = await getLayoutSettings();
       DEFAULT_COLORS.light.textColor,
     "color-article-tag-text-hover-light":
       lightTheme?.articleTagTextHoverColor ||
-      lightTheme?.primaryColor ||
-      DEFAULT_COLORS.light.primaryColor,
+      lightTheme?.textHoverColor ||
+      DEFAULT_COLORS.light.textHoverColor,
     "color-article-subtitle-text-light":
       lightTheme?.articleSubtitleTextColor ||
       lightTheme?.textColor ||
@@ -293,8 +286,8 @@ const layout = await getLayoutSettings();
       DEFAULT_COLORS.dark.textColor,
     "color-article-tag-text-hover-dark":
       darkTheme?.articleTagTextHoverColor ||
-      darkTheme?.primaryColor ||
-      DEFAULT_COLORS.dark.primaryColor,
+      darkTheme?.textHoverColor ||
+      DEFAULT_COLORS.dark.textHoverColor,
     "color-article-subtitle-text-dark":
       darkTheme?.articleSubtitleTextColor ||
       darkTheme?.textColor ||
@@ -375,12 +368,11 @@ const layout = await getLayoutSettings();
 
   :root,
   :root[data-theme="light"] {
-    --primary-color: var(--color-primary-light);
-    --secondary-color: var(--color-secondary-light);
     --background-color: var(--color-background-light);
     --surface-color: var(--color-surface-light);
-    --text-color: var(--color-text-light);
     --border-color: var(--color-border-light);
+    --text-color: var(--color-text-light);
+    --text-hover-color: var(--color-text-hover-light);
 
     /* Card colors */
     --card-border-color: var(--color-card-border-light);
@@ -419,12 +411,11 @@ const layout = await getLayoutSettings();
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --primary-color: var(--color-primary-dark);
-      --secondary-color: var(--color-secondary-dark);
       --background-color: var(--color-background-dark);
       --surface-color: var(--color-surface-dark);
-      --text-color: var(--color-text-dark);
       --border-color: var(--color-border-dark);
+      --text-color: var(--color-text-dark);
+      --text-hover-color: var(--color-text-hover-dark);
 
       /* Card colors */
       --card-border-color: var(--color-card-border-dark);
@@ -463,12 +454,11 @@ const layout = await getLayoutSettings();
   }
 
   :root[data-theme="dark"] {
-    --primary-color: var(--color-primary-dark);
-    --secondary-color: var(--color-secondary-dark);
     --background-color: var(--color-background-dark);
     --surface-color: var(--color-surface-dark);
-    --text-color: var(--color-text-dark);
     --border-color: var(--color-border-dark);
+    --text-color: var(--color-text-dark);
+    --text-hover-color: var(--color-text-hover-dark);
 
     /* Card colors */
     --card-border-color: var(--color-card-border-dark);

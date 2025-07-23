@@ -32,7 +32,7 @@ export const lightThemeType = defineType({
     },
   ],
   fields: themeColorFields({
-    primaryColor: DEFAULT_COLORS.light.primaryColor,
+    textHoverColor: DEFAULT_COLORS.light.textHoverColor,
     secondaryColor: DEFAULT_COLORS.light.secondaryColor,
     backgroundColor: DEFAULT_COLORS.light.backgroundColor,
     surfaceColor: DEFAULT_COLORS.light.surfaceColor,
@@ -81,7 +81,7 @@ export const darkThemeType = defineType({
     },
   ],
   fields: themeColorFields({
-    primaryColor: DEFAULT_COLORS.dark.primaryColor,
+    textHoverColor: DEFAULT_COLORS.dark.textHoverColor,
     secondaryColor: DEFAULT_COLORS.dark.secondaryColor,
     backgroundColor: DEFAULT_COLORS.dark.backgroundColor,
     surfaceColor: DEFAULT_COLORS.dark.surfaceColor,

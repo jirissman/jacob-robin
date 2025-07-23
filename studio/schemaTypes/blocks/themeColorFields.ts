@@ -2,7 +2,7 @@ import {defineField} from 'sanity'
 
 // Shared theme color fields that both light and dark themes will use
 export function themeColorFields(initialValues: {
-  primaryColor: string
+  textHoverColor: string
   secondaryColor: string
   backgroundColor: string
   surfaceColor: string
@@ -18,12 +18,12 @@ export function themeColorFields(initialValues: {
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'primaryColor',
-      title: 'Primary Color',
+      name: 'textHoverColor',
+      title: 'Text Hover Color',
       type: 'color',
-      description: 'Main brand color used throughout the site',
+      description: 'Color used for text hover states throughout the site',
       group: 'globalStyles',
-      initialValue: initialValues.primaryColor,
+      initialValue: initialValues.textHoverColor,
     }),
     defineField({
       name: 'secondaryColor',
