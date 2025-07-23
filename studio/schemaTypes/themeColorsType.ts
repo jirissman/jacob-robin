@@ -9,6 +9,20 @@ export const lightThemeType = defineType({
   type: 'document',
   description: 'Color configuration for light theme',
   icon: DropIcon,
+  groups: [
+    {
+      name: 'globalStyles',
+      title: 'Global Colors',
+    },
+    {
+      name: 'cardStyles',
+      title: 'Card Colors',
+    },
+    {
+      name: 'headerStyles',
+      title: 'Header Colors',
+    },
+  ],
   fields: themeColorFields({
     primaryColor: DEFAULT_COLORS.light.primaryColor,
     secondaryColor: DEFAULT_COLORS.light.secondaryColor,
@@ -36,6 +50,20 @@ export const darkThemeType = defineType({
   type: 'document',
   description: 'Color configuration for dark theme',
   icon: DropIcon,
+  groups: [
+    {
+      name: 'globalStyles',
+      title: 'Global Colors',
+    },
+    {
+      name: 'cardStyles',
+      title: 'Card Colors',
+    },
+    {
+      name: 'headerStyles',
+      title: 'Header Colors',
+    },
+  ],
   fields: themeColorFields({
     primaryColor: DEFAULT_COLORS.dark.primaryColor,
     secondaryColor: DEFAULT_COLORS.dark.secondaryColor,

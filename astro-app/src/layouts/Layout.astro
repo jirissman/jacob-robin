@@ -107,6 +107,106 @@ const layout = await getLayoutSettings();
       lightTheme?.borderColor || DEFAULT_COLORS.light.borderColor,
     "color-border-dark":
       darkTheme?.borderColor || DEFAULT_COLORS.dark.borderColor,
+    // Card colors - Light theme
+    "color-card-border-light":
+      lightTheme?.cardBorderColor ||
+      lightTheme?.borderColor ||
+      DEFAULT_COLORS.light.borderColor,
+    "color-card-background-light":
+      lightTheme?.cardBackgroundColor ||
+      lightTheme?.surfaceColor ||
+      DEFAULT_COLORS.light.surfaceColor,
+    "color-card-hover-light":
+      lightTheme?.cardHoverColor ||
+      lightTheme?.surfaceColor ||
+      DEFAULT_COLORS.light.surfaceColor,
+    "color-card-text-light":
+      lightTheme?.cardTextColor ||
+      lightTheme?.textColor ||
+      DEFAULT_COLORS.light.textColor,
+    "color-card-text-hover-light":
+      lightTheme?.cardTextHoverColor ||
+      lightTheme?.textColor ||
+      DEFAULT_COLORS.light.textColor,
+    "color-card-image-border-light":
+      lightTheme?.cardImageBorderColor ||
+      lightTheme?.borderColor ||
+      DEFAULT_COLORS.light.borderColor,
+    // Card colors - Dark theme
+    "color-card-border-dark":
+      darkTheme?.cardBorderColor ||
+      darkTheme?.borderColor ||
+      DEFAULT_COLORS.dark.borderColor,
+    "color-card-background-dark":
+      darkTheme?.cardBackgroundColor ||
+      darkTheme?.surfaceColor ||
+      DEFAULT_COLORS.dark.surfaceColor,
+    "color-card-hover-dark":
+      darkTheme?.cardHoverColor ||
+      darkTheme?.surfaceColor ||
+      DEFAULT_COLORS.dark.surfaceColor,
+    "color-card-text-dark":
+      darkTheme?.cardTextColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
+    "color-card-text-hover-dark":
+      darkTheme?.cardTextHoverColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
+    "color-card-image-border-dark":
+      darkTheme?.cardImageBorderColor ||
+      darkTheme?.borderColor ||
+      DEFAULT_COLORS.dark.borderColor,
+    // Header colors - Light theme
+    "color-header-background-light":
+      lightTheme?.headerBackgroundColor ||
+      lightTheme?.surfaceColor ||
+      DEFAULT_COLORS.light.surfaceColor,
+    "color-header-border-light":
+      lightTheme?.headerBorderColor ||
+      lightTheme?.borderColor ||
+      DEFAULT_COLORS.light.borderColor,
+    "color-title-text-light":
+      lightTheme?.titleTextColor ||
+      lightTheme?.textColor ||
+      DEFAULT_COLORS.light.textColor,
+    "color-nav-text-light":
+      lightTheme?.navTextColor ||
+      lightTheme?.textColor ||
+      DEFAULT_COLORS.light.textColor,
+    "color-title-text-hover-light":
+      lightTheme?.titleTextHoverColor ||
+      lightTheme?.primaryColor ||
+      DEFAULT_COLORS.light.primaryColor,
+    "color-nav-text-hover-light":
+      lightTheme?.navTextHoverColor ||
+      lightTheme?.primaryColor ||
+      DEFAULT_COLORS.light.primaryColor,
+    // Header colors - Dark theme
+    "color-header-background-dark":
+      darkTheme?.headerBackgroundColor ||
+      darkTheme?.surfaceColor ||
+      DEFAULT_COLORS.dark.surfaceColor,
+    "color-header-border-dark":
+      darkTheme?.headerBorderColor ||
+      darkTheme?.borderColor ||
+      DEFAULT_COLORS.dark.borderColor,
+    "color-title-text-dark":
+      darkTheme?.titleTextColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
+    "color-nav-text-dark":
+      darkTheme?.navTextColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
+    "color-title-text-hover-dark":
+      darkTheme?.titleTextHoverColor ||
+      darkTheme?.primaryColor ||
+      DEFAULT_COLORS.dark.primaryColor,
+    "color-nav-text-hover-dark":
+      darkTheme?.navTextHoverColor ||
+      darkTheme?.primaryColor ||
+      DEFAULT_COLORS.dark.primaryColor,
     // Typography variables
     "font-sans": typography?.sansSerifFont || DEFAULT_TYPOGRAPHY.sansSerifFont,
     "font-serif": typography?.serifFont || DEFAULT_TYPOGRAPHY.serifFont,
@@ -182,6 +282,22 @@ const layout = await getLayoutSettings();
     --text-color: var(--color-text-light);
     --border-color: var(--color-border-light);
 
+    /* Card colors */
+    --card-border-color: var(--color-card-border-light);
+    --card-background-color: var(--color-card-background-light);
+    --card-hover-color: var(--color-card-hover-light);
+    --card-text-color: var(--color-card-text-light);
+    --card-text-hover-color: var(--color-card-text-hover-light);
+    --card-image-border-color: var(--color-card-image-border-light);
+
+    /* Header colors */
+    --header-background-color: var(--color-header-background-light);
+    --header-border-color: var(--color-header-border-light);
+    --title-text-color: var(--color-title-text-light);
+    --nav-text-color: var(--color-nav-text-light);
+    --title-text-hover-color: var(--color-title-text-hover-light);
+    --nav-text-hover-color: var(--color-nav-text-hover-light);
+
     color-scheme: light;
   }
 
@@ -194,6 +310,22 @@ const layout = await getLayoutSettings();
       --text-color: var(--color-text-dark);
       --border-color: var(--color-border-dark);
 
+      /* Card colors */
+      --card-border-color: var(--color-card-border-dark);
+      --card-background-color: var(--color-card-background-dark);
+      --card-hover-color: var(--color-card-hover-dark);
+      --card-text-color: var(--color-card-text-dark);
+      --card-text-hover-color: var(--color-card-text-hover-dark);
+      --card-image-border-color: var(--color-card-image-border-dark);
+
+      /* Header colors */
+      --header-background-color: var(--color-header-background-dark);
+      --header-border-color: var(--color-header-border-dark);
+      --title-text-color: var(--color-title-text-dark);
+      --nav-text-color: var(--color-nav-text-dark);
+      --title-text-hover-color: var(--color-title-text-hover-dark);
+      --nav-text-hover-color: var(--color-nav-text-hover-dark);
+
       color-scheme: dark;
     }
   }
@@ -205,6 +337,22 @@ const layout = await getLayoutSettings();
     --surface-color: var(--color-surface-dark);
     --text-color: var(--color-text-dark);
     --border-color: var(--color-border-dark);
+
+    /* Card colors */
+    --card-border-color: var(--color-card-border-dark);
+    --card-background-color: var(--color-card-background-dark);
+    --card-hover-color: var(--color-card-hover-dark);
+    --card-text-color: var(--color-card-text-dark);
+    --card-text-hover-color: var(--color-card-text-hover-dark);
+    --card-image-border-color: var(--color-card-image-border-dark);
+
+    /* Header colors */
+    --header-background-color: var(--color-header-background-dark);
+    --header-border-color: var(--color-header-border-dark);
+    --title-text-color: var(--color-title-text-dark);
+    --nav-text-color: var(--color-nav-text-dark);
+    --title-text-hover-color: var(--color-title-text-hover-dark);
+    --nav-text-hover-color: var(--color-nav-text-hover-dark);
 
     color-scheme: dark;
   }
