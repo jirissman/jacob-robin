@@ -15,8 +15,16 @@ export const lightThemeType = defineType({
       title: 'Global Colors',
     },
     {
-      name: 'cardStyles',
-      title: 'Card Colors',
+      name: 'backgroundColors',
+      title: 'Background Colors',
+    },
+    {
+      name: 'borderColors',
+      title: 'Border Colors',
+    },
+    {
+      name: 'textColors',
+      title: 'Text Colors',
     },
     {
       name: 'headerStyles',
@@ -25,6 +33,10 @@ export const lightThemeType = defineType({
     {
       name: 'footerStyles',
       title: 'Footer Colors',
+    },
+    {
+      name: 'cardStyles',
+      title: 'Card Colors',
     },
     {
       name: 'articleStyles',
@@ -61,6 +73,18 @@ export const darkThemeType = defineType({
     {
       name: 'globalStyles',
       title: 'Global Colors',
+    },
+    {
+      name: 'backgroundColors',
+      title: 'Background Colors',
+    },
+    {
+      name: 'borderColors',
+      title: 'Border Colors',
+    },
+    {
+      name: 'textColors',
+      title: 'Text Colors',
     },
     {
       name: 'headerStyles',

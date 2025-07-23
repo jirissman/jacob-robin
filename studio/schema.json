@@ -462,22 +462,6 @@
         },
         "optional": true
       },
-      "textHoverColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "color"
-        },
-        "optional": true
-      },
-      "secondaryColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "color"
-        },
-        "optional": true
-      },
       "backgroundColor": {
         "type": "objectAttribute",
         "value": {
@@ -494,6 +478,14 @@
         },
         "optional": true
       },
+      "borderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
       "textColor": {
         "type": "objectAttribute",
         "value": {
@@ -502,7 +494,7 @@
         },
         "optional": true
       },
-      "borderColor": {
+      "textHoverColor": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",
@@ -746,22 +738,6 @@
         },
         "optional": true
       },
-      "textHoverColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "color"
-        },
-        "optional": true
-      },
-      "secondaryColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "color"
-        },
-        "optional": true
-      },
       "backgroundColor": {
         "type": "objectAttribute",
         "value": {
@@ -778,6 +754,14 @@
         },
         "optional": true
       },
+      "borderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
       "textColor": {
         "type": "objectAttribute",
         "value": {
@@ -786,7 +770,7 @@
         },
         "optional": true
       },
-      "borderColor": {
+      "textHoverColor": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",

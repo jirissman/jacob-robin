@@ -64,27 +64,9 @@ export type Typography = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  sansSerifFont?:
-    | "Inter"
-    | "Roboto"
-    | "Open Sans"
-    | "Poppins"
-    | "Arial"
-    | "Helvetica";
-  serifFont?:
-    | "Merriweather"
-    | "Playfair Display"
-    | "Georgia"
-    | "Times New Roman"
-    | "Crimson Text"
-    | "Lora";
-  monospaceFont?:
-    | "Fira Code"
-    | "Source Code Pro"
-    | "Monaco"
-    | "Consolas"
-    | "JetBrains Mono"
-    | "Courier New";
+  sansSerifFont?: "Inter" | "Roboto" | "Open Sans" | "Poppins" | "Arial" | "Helvetica";
+  serifFont?: "Merriweather" | "Playfair Display" | "Georgia" | "Times New Roman" | "Crimson Text" | "Lora";
+  monospaceFont?: "Fira Code" | "Source Code Pro" | "Monaco" | "Consolas" | "JetBrains Mono" | "Courier New";
   fontSize?: {
     mobile?: number;
     desktop?: number;
@@ -99,11 +81,11 @@ export type DarkTheme = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  textHoverColor?: Color;
   backgroundColor?: Color;
   surfaceColor?: Color;
-  textColor?: Color;
   borderColor?: Color;
+  textColor?: Color;
+  textHoverColor?: Color;
   cardBorderColor?: Color;
   cardBackgroundColor?: Color;
   cardHoverColor?: Color;
@@ -137,11 +119,11 @@ export type LightTheme = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  textHoverColor?: Color;
   backgroundColor?: Color;
   surfaceColor?: Color;
-  textColor?: Color;
   borderColor?: Color;
+  textColor?: Color;
+  textHoverColor?: Color;
   cardBorderColor?: Color;
   cardBackgroundColor?: Color;
   cardHoverColor?: Color;
@@ -188,39 +170,36 @@ export type Tag = {
   slug?: Slug;
 };
 
-export type BlockContent = Array<
-  | {
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
-      listItem?: "bullet";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }
-  | {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-      _key: string;
-    }
->;
+export type BlockContent = Array<{
+  children?: Array<{
+    marks?: Array<string>;
+    text?: string;
+    _type: "span";
+    _key: string;
+  }>;
+  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+  listItem?: "bullet";
+  markDefs?: Array<{
+    href?: string;
+    _type: "link";
+    _key: string;
+  }>;
+  level?: number;
+  _type: "block";
+  _key: string;
+} | {
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  };
+  media?: unknown;
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  _type: "image";
+  _key: string;
+}>;
 
 export type Post = {
   _id: string;
@@ -452,39 +431,13 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes =
-  | ActiveStyle
-  | LayoutSettings
-  | Typography
-  | DarkTheme
-  | LightTheme
-  | Category
-  | Tag
-  | BlockContent
-  | Post
-  | About
-  | Color
-  | RgbaColor
-  | HsvaColor
-  | HslaColor
-  | SanityImagePaletteSwatch
-  | SanityImagePalette
-  | SanityImageDimensions
-  | SanityImageHotspot
-  | SanityImageCrop
-  | SanityFileAsset
-  | SanityImageAsset
-  | SanityImageMetadata
-  | Geopoint
-  | Slug
-  | SanityAssetSourceData;
+export type AllSanitySchemaTypes = ActiveStyle | LayoutSettings | Typography | DarkTheme | LightTheme | Category | Tag | BlockContent | Post | About | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../astro-app/src/utils/sanity.ts
 // Variable: DARK_THEME_QUERY
-// Query: *[_type == "activeStyle"][0].activeConfigDark->{  "textHoverColor": textHoverColor.hex,  "secondaryColor": secondaryColor.hex,  "backgroundColor": backgroundColor.hex,  "surfaceColor": surfaceColor.hex,  "textColor": textColor.hex,  "borderColor": borderColor.hex,  "cardBorderColor": cardBorderColor.hex,  "cardBackgroundColor": cardBackgroundColor.hex,  "cardHoverColor": cardHoverColor.hex,  "cardTextColor": cardTextColor.hex,  "cardTextHoverColor": cardTextHoverColor.hex,  "cardImageBorderColor": cardImageBorderColor.hex,  "headerBackgroundColor": headerBackgroundColor.hex,  "headerBorderColor": headerBorderColor.hex,  "titleTextColor": titleTextColor.hex,  "navTextColor": navTextColor.hex,  "titleTextHoverColor": titleTextHoverColor.hex,  "navTextHoverColor": navTextHoverColor.hex,  "footerTextColor": footerTextColor.hex,  "footerLinkColor": footerLinkColor.hex,  "footerLinkHoverColor": footerLinkHoverColor.hex,  "footerBorderColor": footerBorderColor.hex,  "articleBackgroundColor": articleBackgroundColor.hex,  "articleTitleTextColor": articleTitleTextColor.hex,  "articleTagColor": articleTagColor.hex,  "articleTagTextColor": articleTagTextColor.hex,  "articleTagTextHoverColor": articleTagTextHoverColor.hex,  "articleSubtitleTextColor": articleSubtitleTextColor.hex,  "articleBodyTextColor": articleBodyTextColor.hex,  "articleImageBorderColor": articleImageBorderColor.hex}
+// Query: *[_type == "activeStyle"][0].activeConfigDark->{  "textHoverColor": textHoverColor.hex,  "backgroundColor": backgroundColor.hex,  "surfaceColor": surfaceColor.hex,  "textColor": textColor.hex,  "borderColor": borderColor.hex,  "cardBorderColor": cardBorderColor.hex,  "cardBackgroundColor": cardBackgroundColor.hex,  "cardHoverColor": cardHoverColor.hex,  "cardTextColor": cardTextColor.hex,  "cardTextHoverColor": cardTextHoverColor.hex,  "cardImageBorderColor": cardImageBorderColor.hex,  "headerBackgroundColor": headerBackgroundColor.hex,  "headerBorderColor": headerBorderColor.hex,  "titleTextColor": titleTextColor.hex,  "navTextColor": navTextColor.hex,  "titleTextHoverColor": titleTextHoverColor.hex,  "navTextHoverColor": navTextHoverColor.hex,  "footerTextColor": footerTextColor.hex,  "footerLinkColor": footerLinkColor.hex,  "footerLinkHoverColor": footerLinkHoverColor.hex,  "footerBorderColor": footerBorderColor.hex,  "articleBackgroundColor": articleBackgroundColor.hex,  "articleTitleTextColor": articleTitleTextColor.hex,  "articleTagColor": articleTagColor.hex,  "articleTagTextColor": articleTagTextColor.hex,  "articleTagTextHoverColor": articleTagTextHoverColor.hex,  "articleSubtitleTextColor": articleSubtitleTextColor.hex,  "articleBodyTextColor": articleBodyTextColor.hex,  "articleImageBorderColor": articleImageBorderColor.hex}
 export type DARK_THEME_QUERYResult = {
   textHoverColor: string | null;
-  secondaryColor: string | null;
   backgroundColor: string | null;
   surfaceColor: string | null;
   textColor: string | null;
@@ -515,10 +468,9 @@ export type DARK_THEME_QUERYResult = {
   articleImageBorderColor: string | null;
 } | null;
 // Variable: LIGHT_THEME_QUERY
-// Query: *[_type == "activeStyle"][0].activeConfigLight->{  "textHoverColor": textHoverColor.hex,  "secondaryColor": secondaryColor.hex,  "backgroundColor": backgroundColor.hex,  "surfaceColor": surfaceColor.hex,  "textColor": textColor.hex,  "borderColor": borderColor.hex,  "cardBorderColor": cardBorderColor.hex,  "cardBackgroundColor": cardBackgroundColor.hex,  "cardHoverColor": cardHoverColor.hex,  "cardTextColor": cardTextColor.hex,  "cardTextHoverColor": cardTextHoverColor.hex,  "cardImageBorderColor": cardImageBorderColor.hex,  "headerBackgroundColor": headerBackgroundColor.hex,  "headerBorderColor": headerBorderColor.hex,  "titleTextColor": titleTextColor.hex,  "navTextColor": navTextColor.hex,  "titleTextHoverColor": titleTextHoverColor.hex,  "navTextHoverColor": navTextHoverColor.hex,  "footerTextColor": footerTextColor.hex,  "footerLinkColor": footerLinkColor.hex,  "footerLinkHoverColor": footerLinkHoverColor.hex,  "footerBorderColor": footerBorderColor.hex,  "articleBackgroundColor": articleBackgroundColor.hex,  "articleTitleTextColor": articleTitleTextColor.hex,  "articleTagColor": articleTagColor.hex,  "articleTagTextColor": articleTagTextColor.hex,  "articleTagTextHoverColor": articleTagTextHoverColor.hex,  "articleSubtitleTextColor": articleSubtitleTextColor.hex,  "articleBodyTextColor": articleBodyTextColor.hex,  "articleImageBorderColor": articleImageBorderColor.hex}
+// Query: *[_type == "activeStyle"][0].activeConfigLight->{  "textHoverColor": textHoverColor.hex,  "backgroundColor": backgroundColor.hex,  "surfaceColor": surfaceColor.hex,  "textColor": textColor.hex,  "borderColor": borderColor.hex,  "cardBorderColor": cardBorderColor.hex,  "cardBackgroundColor": cardBackgroundColor.hex,  "cardHoverColor": cardHoverColor.hex,  "cardTextColor": cardTextColor.hex,  "cardTextHoverColor": cardTextHoverColor.hex,  "cardImageBorderColor": cardImageBorderColor.hex,  "headerBackgroundColor": headerBackgroundColor.hex,  "headerBorderColor": headerBorderColor.hex,  "titleTextColor": titleTextColor.hex,  "navTextColor": navTextColor.hex,  "titleTextHoverColor": titleTextHoverColor.hex,  "navTextHoverColor": navTextHoverColor.hex,  "footerTextColor": footerTextColor.hex,  "footerLinkColor": footerLinkColor.hex,  "footerLinkHoverColor": footerLinkHoverColor.hex,  "footerBorderColor": footerBorderColor.hex,  "articleBackgroundColor": articleBackgroundColor.hex,  "articleTitleTextColor": articleTitleTextColor.hex,  "articleTagColor": articleTagColor.hex,  "articleTagTextColor": articleTagTextColor.hex,  "articleTagTextHoverColor": articleTagTextHoverColor.hex,  "articleSubtitleTextColor": articleSubtitleTextColor.hex,  "articleBodyTextColor": articleBodyTextColor.hex,  "articleImageBorderColor": articleImageBorderColor.hex}
 export type LIGHT_THEME_QUERYResult = {
   textHoverColor: string | null;
-  secondaryColor: string | null;
   backgroundColor: string | null;
   surfaceColor: string | null;
   textColor: string | null;
@@ -551,30 +503,9 @@ export type LIGHT_THEME_QUERYResult = {
 // Variable: TYPOGRAPHY_QUERY
 // Query: *[_type == "activeStyle"][0].activeTypography->{  sansSerifFont,  serifFont,  monospaceFont,  fontSize,  lineHeight}
 export type TYPOGRAPHY_QUERYResult = {
-  sansSerifFont:
-    | "Arial"
-    | "Helvetica"
-    | "Inter"
-    | "Open Sans"
-    | "Poppins"
-    | "Roboto"
-    | null;
-  serifFont:
-    | "Crimson Text"
-    | "Georgia"
-    | "Lora"
-    | "Merriweather"
-    | "Playfair Display"
-    | "Times New Roman"
-    | null;
-  monospaceFont:
-    | "Consolas"
-    | "Courier New"
-    | "Fira Code"
-    | "JetBrains Mono"
-    | "Monaco"
-    | "Source Code Pro"
-    | null;
+  sansSerifFont: "Arial" | "Helvetica" | "Inter" | "Open Sans" | "Poppins" | "Roboto" | null;
+  serifFont: "Crimson Text" | "Georgia" | "Lora" | "Merriweather" | "Playfair Display" | "Times New Roman" | null;
+  monospaceFont: "Consolas" | "Courier New" | "Fira Code" | "JetBrains Mono" | "Monaco" | "Source Code Pro" | null;
   fontSize: {
     mobile?: number;
     desktop?: number;
@@ -689,12 +620,12 @@ export type ABOUT_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "activeStyle"][0].activeConfigDark->{\n  "textHoverColor": textHoverColor.hex,\n  "secondaryColor": secondaryColor.hex,\n  "backgroundColor": backgroundColor.hex,\n  "surfaceColor": surfaceColor.hex,\n  "textColor": textColor.hex,\n  "borderColor": borderColor.hex,\n  "cardBorderColor": cardBorderColor.hex,\n  "cardBackgroundColor": cardBackgroundColor.hex,\n  "cardHoverColor": cardHoverColor.hex,\n  "cardTextColor": cardTextColor.hex,\n  "cardTextHoverColor": cardTextHoverColor.hex,\n  "cardImageBorderColor": cardImageBorderColor.hex,\n  "headerBackgroundColor": headerBackgroundColor.hex,\n  "headerBorderColor": headerBorderColor.hex,\n  "titleTextColor": titleTextColor.hex,\n  "navTextColor": navTextColor.hex,\n  "titleTextHoverColor": titleTextHoverColor.hex,\n  "navTextHoverColor": navTextHoverColor.hex,\n  "footerTextColor": footerTextColor.hex,\n  "footerLinkColor": footerLinkColor.hex,\n  "footerLinkHoverColor": footerLinkHoverColor.hex,\n  "footerBorderColor": footerBorderColor.hex,\n  "articleBackgroundColor": articleBackgroundColor.hex,\n  "articleTitleTextColor": articleTitleTextColor.hex,\n  "articleTagColor": articleTagColor.hex,\n  "articleTagTextColor": articleTagTextColor.hex,\n  "articleTagTextHoverColor": articleTagTextHoverColor.hex,\n  "articleSubtitleTextColor": articleSubtitleTextColor.hex,\n  "articleBodyTextColor": articleBodyTextColor.hex,\n  "articleImageBorderColor": articleImageBorderColor.hex\n}': DARK_THEME_QUERYResult;
-    '*[_type == "activeStyle"][0].activeConfigLight->{\n  "textHoverColor": textHoverColor.hex,\n  "secondaryColor": secondaryColor.hex,\n  "backgroundColor": backgroundColor.hex,\n  "surfaceColor": surfaceColor.hex,\n  "textColor": textColor.hex,\n  "borderColor": borderColor.hex,\n  "cardBorderColor": cardBorderColor.hex,\n  "cardBackgroundColor": cardBackgroundColor.hex,\n  "cardHoverColor": cardHoverColor.hex,\n  "cardTextColor": cardTextColor.hex,\n  "cardTextHoverColor": cardTextHoverColor.hex,\n  "cardImageBorderColor": cardImageBorderColor.hex,\n  "headerBackgroundColor": headerBackgroundColor.hex,\n  "headerBorderColor": headerBorderColor.hex,\n  "titleTextColor": titleTextColor.hex,\n  "navTextColor": navTextColor.hex,\n  "titleTextHoverColor": titleTextHoverColor.hex,\n  "navTextHoverColor": navTextHoverColor.hex,\n  "footerTextColor": footerTextColor.hex,\n  "footerLinkColor": footerLinkColor.hex,\n  "footerLinkHoverColor": footerLinkHoverColor.hex,\n  "footerBorderColor": footerBorderColor.hex,\n  "articleBackgroundColor": articleBackgroundColor.hex,\n  "articleTitleTextColor": articleTitleTextColor.hex,\n  "articleTagColor": articleTagColor.hex,\n  "articleTagTextColor": articleTagTextColor.hex,\n  "articleTagTextHoverColor": articleTagTextHoverColor.hex,\n  "articleSubtitleTextColor": articleSubtitleTextColor.hex,\n  "articleBodyTextColor": articleBodyTextColor.hex,\n  "articleImageBorderColor": articleImageBorderColor.hex\n}': LIGHT_THEME_QUERYResult;
-    '*[_type == "activeStyle"][0].activeTypography->{\n  sansSerifFont,\n  serifFont,\n  monospaceFont,\n  fontSize,\n  lineHeight\n}': TYPOGRAPHY_QUERYResult;
-    '*[_type == "activeStyle"][0].activeLayout->{\n  maxWidth,\n  customMaxWidth\n}': LAYOUT_SETTINGS_QUERYResult;
-    '*[_type == "post" && defined(slug.current)]{..., "categories": categories[]->name, "tags": tags[]->name} | order(_createdAt desc)': POSTS_QUERYResult;
-    '*[_type == "post" && slug.current == $slug][0]{..., "categories": categories[]->name, "tags": tags[]->name}': POST_BY_SLUG_QUERYResult;
-    '*[_type == "about"][0]': ABOUT_QUERYResult;
+    "*[_type == \"activeStyle\"][0].activeConfigDark->{\n  \"textHoverColor\": textHoverColor.hex,\n  \"backgroundColor\": backgroundColor.hex,\n  \"surfaceColor\": surfaceColor.hex,\n  \"textColor\": textColor.hex,\n  \"borderColor\": borderColor.hex,\n  \"cardBorderColor\": cardBorderColor.hex,\n  \"cardBackgroundColor\": cardBackgroundColor.hex,\n  \"cardHoverColor\": cardHoverColor.hex,\n  \"cardTextColor\": cardTextColor.hex,\n  \"cardTextHoverColor\": cardTextHoverColor.hex,\n  \"cardImageBorderColor\": cardImageBorderColor.hex,\n  \"headerBackgroundColor\": headerBackgroundColor.hex,\n  \"headerBorderColor\": headerBorderColor.hex,\n  \"titleTextColor\": titleTextColor.hex,\n  \"navTextColor\": navTextColor.hex,\n  \"titleTextHoverColor\": titleTextHoverColor.hex,\n  \"navTextHoverColor\": navTextHoverColor.hex,\n  \"footerTextColor\": footerTextColor.hex,\n  \"footerLinkColor\": footerLinkColor.hex,\n  \"footerLinkHoverColor\": footerLinkHoverColor.hex,\n  \"footerBorderColor\": footerBorderColor.hex,\n  \"articleBackgroundColor\": articleBackgroundColor.hex,\n  \"articleTitleTextColor\": articleTitleTextColor.hex,\n  \"articleTagColor\": articleTagColor.hex,\n  \"articleTagTextColor\": articleTagTextColor.hex,\n  \"articleTagTextHoverColor\": articleTagTextHoverColor.hex,\n  \"articleSubtitleTextColor\": articleSubtitleTextColor.hex,\n  \"articleBodyTextColor\": articleBodyTextColor.hex,\n  \"articleImageBorderColor\": articleImageBorderColor.hex\n}": DARK_THEME_QUERYResult;
+    "*[_type == \"activeStyle\"][0].activeConfigLight->{\n  \"textHoverColor\": textHoverColor.hex,\n  \"backgroundColor\": backgroundColor.hex,\n  \"surfaceColor\": surfaceColor.hex,\n  \"textColor\": textColor.hex,\n  \"borderColor\": borderColor.hex,\n  \"cardBorderColor\": cardBorderColor.hex,\n  \"cardBackgroundColor\": cardBackgroundColor.hex,\n  \"cardHoverColor\": cardHoverColor.hex,\n  \"cardTextColor\": cardTextColor.hex,\n  \"cardTextHoverColor\": cardTextHoverColor.hex,\n  \"cardImageBorderColor\": cardImageBorderColor.hex,\n  \"headerBackgroundColor\": headerBackgroundColor.hex,\n  \"headerBorderColor\": headerBorderColor.hex,\n  \"titleTextColor\": titleTextColor.hex,\n  \"navTextColor\": navTextColor.hex,\n  \"titleTextHoverColor\": titleTextHoverColor.hex,\n  \"navTextHoverColor\": navTextHoverColor.hex,\n  \"footerTextColor\": footerTextColor.hex,\n  \"footerLinkColor\": footerLinkColor.hex,\n  \"footerLinkHoverColor\": footerLinkHoverColor.hex,\n  \"footerBorderColor\": footerBorderColor.hex,\n  \"articleBackgroundColor\": articleBackgroundColor.hex,\n  \"articleTitleTextColor\": articleTitleTextColor.hex,\n  \"articleTagColor\": articleTagColor.hex,\n  \"articleTagTextColor\": articleTagTextColor.hex,\n  \"articleTagTextHoverColor\": articleTagTextHoverColor.hex,\n  \"articleSubtitleTextColor\": articleSubtitleTextColor.hex,\n  \"articleBodyTextColor\": articleBodyTextColor.hex,\n  \"articleImageBorderColor\": articleImageBorderColor.hex\n}": LIGHT_THEME_QUERYResult;
+    "*[_type == \"activeStyle\"][0].activeTypography->{\n  sansSerifFont,\n  serifFont,\n  monospaceFont,\n  fontSize,\n  lineHeight\n}": TYPOGRAPHY_QUERYResult;
+    "*[_type == \"activeStyle\"][0].activeLayout->{\n  maxWidth,\n  customMaxWidth\n}": LAYOUT_SETTINGS_QUERYResult;
+    "*[_type == \"post\" && defined(slug.current)]{..., \"categories\": categories[]->name, \"tags\": tags[]->name} | order(_createdAt desc)": POSTS_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{..., \"categories\": categories[]->name, \"tags\": tags[]->name}": POST_BY_SLUG_QUERYResult;
+    "*[_type == \"about\"][0]": ABOUT_QUERYResult;
   }
 }
