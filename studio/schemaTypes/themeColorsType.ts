@@ -32,12 +32,11 @@ export const lightThemeType = defineType({
     },
   ],
   fields: themeColorFields({
-    textHoverColor: DEFAULT_COLORS.light.textHoverColor,
-    secondaryColor: DEFAULT_COLORS.light.secondaryColor,
     backgroundColor: DEFAULT_COLORS.light.backgroundColor,
     surfaceColor: DEFAULT_COLORS.light.surfaceColor,
-    textColor: DEFAULT_COLORS.light.textColor,
     borderColor: DEFAULT_COLORS.light.borderColor,
+    textColor: DEFAULT_COLORS.light.textColor,
+    textHoverColor: DEFAULT_COLORS.light.textHoverColor,
   }),
   preview: {
     select: {
@@ -81,12 +80,11 @@ export const darkThemeType = defineType({
     },
   ],
   fields: themeColorFields({
-    textHoverColor: DEFAULT_COLORS.dark.textHoverColor,
-    secondaryColor: DEFAULT_COLORS.dark.secondaryColor,
     backgroundColor: DEFAULT_COLORS.dark.backgroundColor,
     surfaceColor: DEFAULT_COLORS.dark.surfaceColor,
-    textColor: DEFAULT_COLORS.dark.textColor,
     borderColor: DEFAULT_COLORS.dark.borderColor,
+    textColor: DEFAULT_COLORS.dark.textColor,
+    textHoverColor: DEFAULT_COLORS.dark.textHoverColor,
   }),
   preview: {
     select: {

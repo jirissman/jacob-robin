@@ -2,12 +2,11 @@ import {defineField} from 'sanity'
 
 // Shared theme color fields that both light and dark themes will use
 export function themeColorFields(initialValues: {
-  textHoverColor: string
-  secondaryColor: string
   backgroundColor: string
   surfaceColor: string
-  textColor: string
   borderColor: string
+  textColor: string
+  textHoverColor: string
 }) {
   return [
     defineField({
@@ -16,22 +15,6 @@ export function themeColorFields(initialValues: {
       type: 'string',
       description: 'Name for this theme configuration (e.g. "Summer Vibes")',
       validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'textHoverColor',
-      title: 'Text Hover Color',
-      type: 'color',
-      description: 'Color used for text hover states throughout the site',
-      group: 'globalStyles',
-      initialValue: initialValues.textHoverColor,
-    }),
-    defineField({
-      name: 'secondaryColor',
-      title: 'Secondary Color',
-      type: 'color',
-      description: 'Secondary brand color for accents',
-      group: 'globalStyles',
-      initialValue: initialValues.secondaryColor,
     }),
     defineField({
       name: 'backgroundColor',
@@ -50,6 +33,14 @@ export function themeColorFields(initialValues: {
       initialValue: initialValues.surfaceColor,
     }),
     defineField({
+      name: 'borderColor',
+      title: 'Border Color',
+      type: 'color',
+      description: 'Color for borders and dividers',
+      group: 'globalStyles',
+      initialValue: initialValues.borderColor,
+    }),
+    defineField({
       name: 'textColor',
       title: 'Text Color',
       type: 'color',
@@ -58,12 +49,12 @@ export function themeColorFields(initialValues: {
       initialValue: initialValues.textColor,
     }),
     defineField({
-      name: 'borderColor',
-      title: 'Border Color',
+      name: 'textHoverColor',
+      title: 'Text Hover Color',
       type: 'color',
-      description: 'Color for borders and dividers',
+      description: 'Color used for text hover states throughout the site',
       group: 'globalStyles',
-      initialValue: initialValues.borderColor,
+      initialValue: initialValues.textHoverColor,
     }),
     defineField({
       name: 'cardBorderColor',

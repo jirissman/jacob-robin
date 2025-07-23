@@ -6,7 +6,6 @@ export const DEFAULT_COLORS = {
   // Light theme defaults
   light: {
     textHoverColor: "#1e61cd",
-    secondaryColor: "#f9d7eb",
     backgroundColor: "#ffffff",
     surfaceColor: "#f8fafc",
     textColor: "#000000",
@@ -15,7 +14,6 @@ export const DEFAULT_COLORS = {
   // Dark theme defaults
   dark: {
     textHoverColor: "#4a90e2",
-    secondaryColor: "#8b5a8c",
     backgroundColor: "#17181C",
     surfaceColor: "#23262F",
     textColor: "#ffffff",
