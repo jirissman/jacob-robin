@@ -225,7 +225,10 @@ const layout = await getLayoutSettings();
       darkTheme?.footerTextColor ||
       darkTheme?.textColor ||
       DEFAULT_COLORS.dark.textColor,
-    "color-footer-link-dark": darkTheme?.footerLinkColor,
+    "color-footer-link-dark":
+      darkTheme?.footerLinkColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
     "color-footer-link-hover-dark":
       darkTheme?.footerLinkHoverColor ||
       darkTheme?.textHoverColor ||
