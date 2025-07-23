@@ -103,6 +103,14 @@ export type DarkTheme = {
   footerLinkColor?: Color;
   footerLinkHoverColor?: Color;
   footerBorderColor?: Color;
+  articleBackgroundColor?: Color;
+  articleTitleTextColor?: Color;
+  articleTagColor?: Color;
+  articleTagTextColor?: Color;
+  articleTagTextHoverColor?: Color;
+  articleSubtitleTextColor?: Color;
+  articleBodyTextColor?: Color;
+  articleImageBorderColor?: Color;
 };
 
 export type LightTheme = {
@@ -134,6 +142,14 @@ export type LightTheme = {
   footerLinkColor?: Color;
   footerLinkHoverColor?: Color;
   footerBorderColor?: Color;
+  articleBackgroundColor?: Color;
+  articleTitleTextColor?: Color;
+  articleTagColor?: Color;
+  articleTagTextColor?: Color;
+  articleTagTextHoverColor?: Color;
+  articleSubtitleTextColor?: Color;
+  articleBodyTextColor?: Color;
+  articleImageBorderColor?: Color;
 };
 
 export type Category = {
@@ -421,7 +437,7 @@ export type AllSanitySchemaTypes = ActiveStyle | LayoutSettings | Typography | D
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../astro-app/src/utils/sanity.ts
 // Variable: DARK_THEME_QUERY
-// Query: *[_type == "activeStyle"][0].activeConfigDark->{  "primaryColor": primaryColor.hex,  "secondaryColor": secondaryColor.hex,  "backgroundColor": backgroundColor.hex,  "surfaceColor": surfaceColor.hex,  "textColor": textColor.hex,  "borderColor": borderColor.hex,  "cardBorderColor": cardBorderColor.hex,  "cardBackgroundColor": cardBackgroundColor.hex,  "cardHoverColor": cardHoverColor.hex,  "cardTextColor": cardTextColor.hex,  "cardTextHoverColor": cardTextHoverColor.hex,  "cardImageBorderColor": cardImageBorderColor.hex,  "headerBackgroundColor": headerBackgroundColor.hex,  "headerBorderColor": headerBorderColor.hex,  "titleTextColor": titleTextColor.hex,  "navTextColor": navTextColor.hex,  "titleTextHoverColor": titleTextHoverColor.hex,  "navTextHoverColor": navTextHoverColor.hex,  "footerTextColor": footerTextColor.hex,  "footerLinkColor": footerLinkColor.hex,  "footerLinkHoverColor": footerLinkHoverColor.hex,  "footerBorderColor": footerBorderColor.hex}
+// Query: *[_type == "activeStyle"][0].activeConfigDark->{  "primaryColor": primaryColor.hex,  "secondaryColor": secondaryColor.hex,  "backgroundColor": backgroundColor.hex,  "surfaceColor": surfaceColor.hex,  "textColor": textColor.hex,  "borderColor": borderColor.hex,  "cardBorderColor": cardBorderColor.hex,  "cardBackgroundColor": cardBackgroundColor.hex,  "cardHoverColor": cardHoverColor.hex,  "cardTextColor": cardTextColor.hex,  "cardTextHoverColor": cardTextHoverColor.hex,  "cardImageBorderColor": cardImageBorderColor.hex,  "headerBackgroundColor": headerBackgroundColor.hex,  "headerBorderColor": headerBorderColor.hex,  "titleTextColor": titleTextColor.hex,  "navTextColor": navTextColor.hex,  "titleTextHoverColor": titleTextHoverColor.hex,  "navTextHoverColor": navTextHoverColor.hex,  "footerTextColor": footerTextColor.hex,  "footerLinkColor": footerLinkColor.hex,  "footerLinkHoverColor": footerLinkHoverColor.hex,  "footerBorderColor": footerBorderColor.hex,  "articleBackgroundColor": articleBackgroundColor.hex,  "articleTitleTextColor": articleTitleTextColor.hex,  "articleTagColor": articleTagColor.hex,  "articleTagTextColor": articleTagTextColor.hex,  "articleTagTextHoverColor": articleTagTextHoverColor.hex,  "articleSubtitleTextColor": articleSubtitleTextColor.hex,  "articleBodyTextColor": articleBodyTextColor.hex,  "articleImageBorderColor": articleImageBorderColor.hex}
 export type DARK_THEME_QUERYResult = {
   primaryColor: string | null;
   secondaryColor: string | null;
@@ -445,9 +461,17 @@ export type DARK_THEME_QUERYResult = {
   footerLinkColor: string | null;
   footerLinkHoverColor: string | null;
   footerBorderColor: string | null;
+  articleBackgroundColor: string | null;
+  articleTitleTextColor: string | null;
+  articleTagColor: string | null;
+  articleTagTextColor: string | null;
+  articleTagTextHoverColor: string | null;
+  articleSubtitleTextColor: string | null;
+  articleBodyTextColor: string | null;
+  articleImageBorderColor: string | null;
 } | null;
 // Variable: LIGHT_THEME_QUERY
-// Query: *[_type == "activeStyle"][0].activeConfigLight->{  "primaryColor": primaryColor.hex,  "secondaryColor": secondaryColor.hex,  "backgroundColor": backgroundColor.hex,  "surfaceColor": surfaceColor.hex,  "textColor": textColor.hex,  "borderColor": borderColor.hex,  "cardBorderColor": cardBorderColor.hex,  "cardBackgroundColor": cardBackgroundColor.hex,  "cardHoverColor": cardHoverColor.hex,  "cardTextColor": cardTextColor.hex,  "cardTextHoverColor": cardTextHoverColor.hex,  "cardImageBorderColor": cardImageBorderColor.hex,  "headerBackgroundColor": headerBackgroundColor.hex,  "headerBorderColor": headerBorderColor.hex,  "titleTextColor": titleTextColor.hex,  "navTextColor": navTextColor.hex,  "titleTextHoverColor": titleTextHoverColor.hex,  "navTextHoverColor": navTextHoverColor.hex,  "footerTextColor": footerTextColor.hex,  "footerLinkColor": footerLinkColor.hex,  "footerLinkHoverColor": footerLinkHoverColor.hex,  "footerBorderColor": footerBorderColor.hex}
+// Query: *[_type == "activeStyle"][0].activeConfigLight->{  "primaryColor": primaryColor.hex,  "secondaryColor": secondaryColor.hex,  "backgroundColor": backgroundColor.hex,  "surfaceColor": surfaceColor.hex,  "textColor": textColor.hex,  "borderColor": borderColor.hex,  "cardBorderColor": cardBorderColor.hex,  "cardBackgroundColor": cardBackgroundColor.hex,  "cardHoverColor": cardHoverColor.hex,  "cardTextColor": cardTextColor.hex,  "cardTextHoverColor": cardTextHoverColor.hex,  "cardImageBorderColor": cardImageBorderColor.hex,  "headerBackgroundColor": headerBackgroundColor.hex,  "headerBorderColor": headerBorderColor.hex,  "titleTextColor": titleTextColor.hex,  "navTextColor": navTextColor.hex,  "titleTextHoverColor": titleTextHoverColor.hex,  "navTextHoverColor": navTextHoverColor.hex,  "footerTextColor": footerTextColor.hex,  "footerLinkColor": footerLinkColor.hex,  "footerLinkHoverColor": footerLinkHoverColor.hex,  "footerBorderColor": footerBorderColor.hex,  "articleBackgroundColor": articleBackgroundColor.hex,  "articleTitleTextColor": articleTitleTextColor.hex,  "articleTagColor": articleTagColor.hex,  "articleTagTextColor": articleTagTextColor.hex,  "articleTagTextHoverColor": articleTagTextHoverColor.hex,  "articleSubtitleTextColor": articleSubtitleTextColor.hex,  "articleBodyTextColor": articleBodyTextColor.hex,  "articleImageBorderColor": articleImageBorderColor.hex}
 export type LIGHT_THEME_QUERYResult = {
   primaryColor: string | null;
   secondaryColor: string | null;
@@ -471,6 +495,14 @@ export type LIGHT_THEME_QUERYResult = {
   footerLinkColor: string | null;
   footerLinkHoverColor: string | null;
   footerBorderColor: string | null;
+  articleBackgroundColor: string | null;
+  articleTitleTextColor: string | null;
+  articleTagColor: string | null;
+  articleTagTextColor: string | null;
+  articleTagTextHoverColor: string | null;
+  articleSubtitleTextColor: string | null;
+  articleBodyTextColor: string | null;
+  articleImageBorderColor: string | null;
 } | null;
 // Variable: TYPOGRAPHY_QUERY
 // Query: *[_type == "activeStyle"][0].activeTypography->{  sansSerifFont,  serifFont,  monospaceFont,  fontSize,  lineHeight}
@@ -592,8 +624,8 @@ export type ABOUT_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"activeStyle\"][0].activeConfigDark->{\n  \"primaryColor\": primaryColor.hex,\n  \"secondaryColor\": secondaryColor.hex,\n  \"backgroundColor\": backgroundColor.hex,\n  \"surfaceColor\": surfaceColor.hex,\n  \"textColor\": textColor.hex,\n  \"borderColor\": borderColor.hex,\n  \"cardBorderColor\": cardBorderColor.hex,\n  \"cardBackgroundColor\": cardBackgroundColor.hex,\n  \"cardHoverColor\": cardHoverColor.hex,\n  \"cardTextColor\": cardTextColor.hex,\n  \"cardTextHoverColor\": cardTextHoverColor.hex,\n  \"cardImageBorderColor\": cardImageBorderColor.hex,\n  \"headerBackgroundColor\": headerBackgroundColor.hex,\n  \"headerBorderColor\": headerBorderColor.hex,\n  \"titleTextColor\": titleTextColor.hex,\n  \"navTextColor\": navTextColor.hex,\n  \"titleTextHoverColor\": titleTextHoverColor.hex,\n  \"navTextHoverColor\": navTextHoverColor.hex,\n  \"footerTextColor\": footerTextColor.hex,\n  \"footerLinkColor\": footerLinkColor.hex,\n  \"footerLinkHoverColor\": footerLinkHoverColor.hex,\n  \"footerBorderColor\": footerBorderColor.hex\n}": DARK_THEME_QUERYResult;
-    "*[_type == \"activeStyle\"][0].activeConfigLight->{\n  \"primaryColor\": primaryColor.hex,\n  \"secondaryColor\": secondaryColor.hex,\n  \"backgroundColor\": backgroundColor.hex,\n  \"surfaceColor\": surfaceColor.hex,\n  \"textColor\": textColor.hex,\n  \"borderColor\": borderColor.hex,\n  \"cardBorderColor\": cardBorderColor.hex,\n  \"cardBackgroundColor\": cardBackgroundColor.hex,\n  \"cardHoverColor\": cardHoverColor.hex,\n  \"cardTextColor\": cardTextColor.hex,\n  \"cardTextHoverColor\": cardTextHoverColor.hex,\n  \"cardImageBorderColor\": cardImageBorderColor.hex,\n  \"headerBackgroundColor\": headerBackgroundColor.hex,\n  \"headerBorderColor\": headerBorderColor.hex,\n  \"titleTextColor\": titleTextColor.hex,\n  \"navTextColor\": navTextColor.hex,\n  \"titleTextHoverColor\": titleTextHoverColor.hex,\n  \"navTextHoverColor\": navTextHoverColor.hex,\n  \"footerTextColor\": footerTextColor.hex,\n  \"footerLinkColor\": footerLinkColor.hex,\n  \"footerLinkHoverColor\": footerLinkHoverColor.hex,\n  \"footerBorderColor\": footerBorderColor.hex\n}": LIGHT_THEME_QUERYResult;
+    "*[_type == \"activeStyle\"][0].activeConfigDark->{\n  \"primaryColor\": primaryColor.hex,\n  \"secondaryColor\": secondaryColor.hex,\n  \"backgroundColor\": backgroundColor.hex,\n  \"surfaceColor\": surfaceColor.hex,\n  \"textColor\": textColor.hex,\n  \"borderColor\": borderColor.hex,\n  \"cardBorderColor\": cardBorderColor.hex,\n  \"cardBackgroundColor\": cardBackgroundColor.hex,\n  \"cardHoverColor\": cardHoverColor.hex,\n  \"cardTextColor\": cardTextColor.hex,\n  \"cardTextHoverColor\": cardTextHoverColor.hex,\n  \"cardImageBorderColor\": cardImageBorderColor.hex,\n  \"headerBackgroundColor\": headerBackgroundColor.hex,\n  \"headerBorderColor\": headerBorderColor.hex,\n  \"titleTextColor\": titleTextColor.hex,\n  \"navTextColor\": navTextColor.hex,\n  \"titleTextHoverColor\": titleTextHoverColor.hex,\n  \"navTextHoverColor\": navTextHoverColor.hex,\n  \"footerTextColor\": footerTextColor.hex,\n  \"footerLinkColor\": footerLinkColor.hex,\n  \"footerLinkHoverColor\": footerLinkHoverColor.hex,\n  \"footerBorderColor\": footerBorderColor.hex,\n  \"articleBackgroundColor\": articleBackgroundColor.hex,\n  \"articleTitleTextColor\": articleTitleTextColor.hex,\n  \"articleTagColor\": articleTagColor.hex,\n  \"articleTagTextColor\": articleTagTextColor.hex,\n  \"articleTagTextHoverColor\": articleTagTextHoverColor.hex,\n  \"articleSubtitleTextColor\": articleSubtitleTextColor.hex,\n  \"articleBodyTextColor\": articleBodyTextColor.hex,\n  \"articleImageBorderColor\": articleImageBorderColor.hex\n}": DARK_THEME_QUERYResult;
+    "*[_type == \"activeStyle\"][0].activeConfigLight->{\n  \"primaryColor\": primaryColor.hex,\n  \"secondaryColor\": secondaryColor.hex,\n  \"backgroundColor\": backgroundColor.hex,\n  \"surfaceColor\": surfaceColor.hex,\n  \"textColor\": textColor.hex,\n  \"borderColor\": borderColor.hex,\n  \"cardBorderColor\": cardBorderColor.hex,\n  \"cardBackgroundColor\": cardBackgroundColor.hex,\n  \"cardHoverColor\": cardHoverColor.hex,\n  \"cardTextColor\": cardTextColor.hex,\n  \"cardTextHoverColor\": cardTextHoverColor.hex,\n  \"cardImageBorderColor\": cardImageBorderColor.hex,\n  \"headerBackgroundColor\": headerBackgroundColor.hex,\n  \"headerBorderColor\": headerBorderColor.hex,\n  \"titleTextColor\": titleTextColor.hex,\n  \"navTextColor\": navTextColor.hex,\n  \"titleTextHoverColor\": titleTextHoverColor.hex,\n  \"navTextHoverColor\": navTextHoverColor.hex,\n  \"footerTextColor\": footerTextColor.hex,\n  \"footerLinkColor\": footerLinkColor.hex,\n  \"footerLinkHoverColor\": footerLinkHoverColor.hex,\n  \"footerBorderColor\": footerBorderColor.hex,\n  \"articleBackgroundColor\": articleBackgroundColor.hex,\n  \"articleTitleTextColor\": articleTitleTextColor.hex,\n  \"articleTagColor\": articleTagColor.hex,\n  \"articleTagTextColor\": articleTagTextColor.hex,\n  \"articleTagTextHoverColor\": articleTagTextHoverColor.hex,\n  \"articleSubtitleTextColor\": articleSubtitleTextColor.hex,\n  \"articleBodyTextColor\": articleBodyTextColor.hex,\n  \"articleImageBorderColor\": articleImageBorderColor.hex\n}": LIGHT_THEME_QUERYResult;
     "*[_type == \"activeStyle\"][0].activeTypography->{\n  sansSerifFont,\n  serifFont,\n  monospaceFont,\n  fontSize,\n  lineHeight\n}": TYPOGRAPHY_QUERYResult;
     "*[_type == \"activeStyle\"][0].activeLayout->{\n  maxWidth,\n  customMaxWidth\n}": LAYOUT_SETTINGS_QUERYResult;
     "*[_type == \"post\" && defined(slug.current)]{..., \"categories\": categories[]->name, \"tags\": tags[]->name} | order(_createdAt desc)": POSTS_QUERYResult;

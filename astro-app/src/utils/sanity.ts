@@ -32,7 +32,15 @@ const DARK_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigDark->{
   "footerTextColor": footerTextColor.hex,
   "footerLinkColor": footerLinkColor.hex,
   "footerLinkHoverColor": footerLinkHoverColor.hex,
-  "footerBorderColor": footerBorderColor.hex
+  "footerBorderColor": footerBorderColor.hex,
+  "articleBackgroundColor": articleBackgroundColor.hex,
+  "articleTitleTextColor": articleTitleTextColor.hex,
+  "articleTagColor": articleTagColor.hex,
+  "articleTagTextColor": articleTagTextColor.hex,
+  "articleTagTextHoverColor": articleTagTextHoverColor.hex,
+  "articleSubtitleTextColor": articleSubtitleTextColor.hex,
+  "articleBodyTextColor": articleBodyTextColor.hex,
+  "articleImageBorderColor": articleImageBorderColor.hex
 }`;
 
 const LIGHT_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigLight->{
@@ -57,7 +65,15 @@ const LIGHT_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigLight->{
   "footerTextColor": footerTextColor.hex,
   "footerLinkColor": footerLinkColor.hex,
   "footerLinkHoverColor": footerLinkHoverColor.hex,
-  "footerBorderColor": footerBorderColor.hex
+  "footerBorderColor": footerBorderColor.hex,
+  "articleBackgroundColor": articleBackgroundColor.hex,
+  "articleTitleTextColor": articleTitleTextColor.hex,
+  "articleTagColor": articleTagColor.hex,
+  "articleTagTextColor": articleTagTextColor.hex,
+  "articleTagTextHoverColor": articleTagTextHoverColor.hex,
+  "articleSubtitleTextColor": articleSubtitleTextColor.hex,
+  "articleBodyTextColor": articleBodyTextColor.hex,
+  "articleImageBorderColor": articleImageBorderColor.hex
 }`;
 
 const TYPOGRAPHY_QUERY = groq`*[_type == "activeStyle"][0].activeTypography->{

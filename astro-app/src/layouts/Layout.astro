@@ -241,6 +241,72 @@ const layout = await getLayoutSettings();
       darkTheme?.footerBorderColor ||
       darkTheme?.borderColor ||
       DEFAULT_COLORS.dark.borderColor,
+    // Article colors - Light theme
+    "color-article-background-light":
+      lightTheme?.articleBackgroundColor ||
+      lightTheme?.backgroundColor ||
+      DEFAULT_COLORS.light.backgroundColor,
+    "color-article-title-text-light":
+      lightTheme?.articleTitleTextColor ||
+      lightTheme?.textColor ||
+      DEFAULT_COLORS.light.textColor,
+    "color-article-tag-light":
+      lightTheme?.articleTagColor ||
+      lightTheme?.surfaceColor ||
+      DEFAULT_COLORS.light.surfaceColor,
+    "color-article-tag-text-light":
+      lightTheme?.articleTagTextColor ||
+      lightTheme?.textColor ||
+      DEFAULT_COLORS.light.textColor,
+    "color-article-tag-text-hover-light":
+      lightTheme?.articleTagTextHoverColor ||
+      lightTheme?.primaryColor ||
+      DEFAULT_COLORS.light.primaryColor,
+    "color-article-subtitle-text-light":
+      lightTheme?.articleSubtitleTextColor ||
+      lightTheme?.textColor ||
+      DEFAULT_COLORS.light.textColor,
+    "color-article-body-text-light":
+      lightTheme?.articleBodyTextColor ||
+      lightTheme?.textColor ||
+      DEFAULT_COLORS.light.textColor,
+    "color-article-image-border-light":
+      lightTheme?.articleImageBorderColor ||
+      lightTheme?.borderColor ||
+      DEFAULT_COLORS.light.borderColor,
+    // Article colors - Dark theme
+    "color-article-background-dark":
+      darkTheme?.articleBackgroundColor ||
+      darkTheme?.backgroundColor ||
+      DEFAULT_COLORS.dark.backgroundColor,
+    "color-article-title-text-dark":
+      darkTheme?.articleTitleTextColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
+    "color-article-tag-dark":
+      darkTheme?.articleTagColor ||
+      darkTheme?.surfaceColor ||
+      DEFAULT_COLORS.dark.surfaceColor,
+    "color-article-tag-text-dark":
+      darkTheme?.articleTagTextColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
+    "color-article-tag-text-hover-dark":
+      darkTheme?.articleTagTextHoverColor ||
+      darkTheme?.primaryColor ||
+      DEFAULT_COLORS.dark.primaryColor,
+    "color-article-subtitle-text-dark":
+      darkTheme?.articleSubtitleTextColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
+    "color-article-body-text-dark":
+      darkTheme?.articleBodyTextColor ||
+      darkTheme?.textColor ||
+      DEFAULT_COLORS.dark.textColor,
+    "color-article-image-border-dark":
+      darkTheme?.articleImageBorderColor ||
+      darkTheme?.borderColor ||
+      DEFAULT_COLORS.dark.borderColor,
     // Typography variables
     "font-sans": typography?.sansSerifFont || DEFAULT_TYPOGRAPHY.sansSerifFont,
     "font-serif": typography?.serifFont || DEFAULT_TYPOGRAPHY.serifFont,
@@ -338,6 +404,16 @@ const layout = await getLayoutSettings();
     --footer-link-hover-color: var(--color-footer-link-hover-light);
     --footer-border-color: var(--color-footer-border-light);
 
+    /* Article colors */
+    --article-background-color: var(--color-article-background-light);
+    --article-title-text-color: var(--color-article-title-text-light);
+    --article-tag-color: var(--color-article-tag-light);
+    --article-tag-text-color: var(--color-article-tag-text-light);
+    --article-tag-text-hover-color: var(--color-article-tag-text-hover-light);
+    --article-subtitle-text-color: var(--color-article-subtitle-text-light);
+    --article-body-text-color: var(--color-article-body-text-light);
+    --article-image-border-color: var(--color-article-image-border-light);
+
     color-scheme: light;
   }
 
@@ -372,6 +448,16 @@ const layout = await getLayoutSettings();
       --footer-link-hover-color: var(--color-footer-link-hover-dark);
       --footer-border-color: var(--color-footer-border-dark);
 
+      /* Article colors */
+      --article-background-color: var(--color-article-background-dark);
+      --article-title-text-color: var(--color-article-title-text-dark);
+      --article-tag-color: var(--color-article-tag-dark);
+      --article-tag-text-color: var(--color-article-tag-text-dark);
+      --article-tag-text-hover-color: var(--color-article-tag-text-hover-dark);
+      --article-subtitle-text-color: var(--color-article-subtitle-text-dark);
+      --article-body-text-color: var(--color-article-body-text-dark);
+      --article-image-border-color: var(--color-article-image-border-dark);
+
       color-scheme: dark;
     }
   }
@@ -405,6 +491,16 @@ const layout = await getLayoutSettings();
     --footer-link-color: var(--color-footer-link-dark);
     --footer-link-hover-color: var(--color-footer-link-hover-dark);
     --footer-border-color: var(--color-footer-border-dark);
+
+    /* Article colors */
+    --article-background-color: var(--color-article-background-dark);
+    --article-title-text-color: var(--color-article-title-text-dark);
+    --article-tag-color: var(--color-article-tag-dark);
+    --article-tag-text-color: var(--color-article-tag-text-dark);
+    --article-tag-text-hover-color: var(--color-article-tag-text-hover-dark);
+    --article-subtitle-text-color: var(--color-article-subtitle-text-dark);
+    --article-body-text-color: var(--color-article-body-text-dark);
+    --article-image-border-color: var(--color-article-image-border-dark);
 
     color-scheme: dark;
   }
