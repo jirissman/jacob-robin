@@ -28,7 +28,11 @@ const DARK_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigDark->{
   "titleTextColor": titleTextColor.hex,
   "navTextColor": navTextColor.hex,
   "titleTextHoverColor": titleTextHoverColor.hex,
-  "navTextHoverColor": navTextHoverColor.hex
+  "navTextHoverColor": navTextHoverColor.hex,
+  "footerTextColor": footerTextColor.hex,
+  "footerLinkColor": footerLinkColor.hex,
+  "footerLinkHoverColor": footerLinkHoverColor.hex,
+  "footerBorderColor": footerBorderColor.hex
 }`;
 
 const LIGHT_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigLight->{
@@ -49,7 +53,11 @@ const LIGHT_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigLight->{
   "titleTextColor": titleTextColor.hex,
   "navTextColor": navTextColor.hex,
   "titleTextHoverColor": titleTextHoverColor.hex,
-  "navTextHoverColor": navTextHoverColor.hex
+  "navTextHoverColor": navTextHoverColor.hex,
+  "footerTextColor": footerTextColor.hex,
+  "footerLinkColor": footerLinkColor.hex,
+  "footerLinkHoverColor": footerLinkHoverColor.hex,
+  "footerBorderColor": footerBorderColor.hex
 }`;
 
 const TYPOGRAPHY_QUERY = groq`*[_type == "activeStyle"][0].activeTypography->{

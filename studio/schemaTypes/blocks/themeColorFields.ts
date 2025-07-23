@@ -149,5 +149,33 @@ export function themeColorFields(initialValues: {
       description: 'Text color for navigation links on hover',
       group: 'headerStyles',
     }),
+    defineField({
+      name: 'footerTextColor',
+      title: 'Footer Text Color',
+      type: 'color',
+      description: 'Text color for footer content',
+      group: 'footerStyles',
+    }),
+    defineField({
+      name: 'footerLinkColor',
+      title: 'Footer Link Color',
+      type: 'color',
+      description: 'Color for footer links',
+      group: 'footerStyles',
+    }),
+    defineField({
+      name: 'footerLinkHoverColor',
+      title: 'Footer Link Hover Color',
+      type: 'color',
+      description: 'Color for footer links on hover',
+      group: 'footerStyles',
+    }),
+    defineField({
+      name: 'footerBorderColor',
+      title: 'Footer Border Color',
+      type: 'color',
+      description: 'Border color for the footer',
+      group: 'footerStyles',
+    }),
   ]
 }

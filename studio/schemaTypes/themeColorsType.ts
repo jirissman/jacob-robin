@@ -22,6 +22,10 @@ export const lightThemeType = defineType({
       name: 'headerStyles',
       title: 'Header Colors',
     },
+    {
+      name: 'footerStyles',
+      title: 'Footer Colors',
+    },
   ],
   fields: themeColorFields({
     primaryColor: DEFAULT_COLORS.light.primaryColor,
@@ -62,6 +66,10 @@ export const darkThemeType = defineType({
     {
       name: 'headerStyles',
       title: 'Header Colors',
+    },
+    {
+      name: 'footerStyles',
+      title: 'Footer Colors',
     },
   ],
   fields: themeColorFields({
