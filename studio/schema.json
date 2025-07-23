@@ -462,22 +462,6 @@
         },
         "optional": true
       },
-      "primaryColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "color"
-        },
-        "optional": true
-      },
-      "secondaryColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "color"
-        },
-        "optional": true
-      },
       "backgroundColor": {
         "type": "objectAttribute",
         "value": {
@@ -494,6 +478,14 @@
         },
         "optional": true
       },
+      "borderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
       "textColor": {
         "type": "objectAttribute",
         "value": {
@@ -502,7 +494,199 @@
         },
         "optional": true
       },
-      "borderColor": {
+      "textHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardBorderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardBackgroundColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardTextHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardImageBorderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "headerBackgroundColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "headerBorderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "titleTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "navTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "titleTextHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "navTextHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "footerTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "footerLinkColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "footerLinkHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "footerBorderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleBackgroundColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleTitleTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleTagColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleTagTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleTagTextHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleSubtitleTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleBodyTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleImageBorderColor": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",
@@ -554,22 +738,6 @@
         },
         "optional": true
       },
-      "primaryColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "color"
-        },
-        "optional": true
-      },
-      "secondaryColor": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "color"
-        },
-        "optional": true
-      },
       "backgroundColor": {
         "type": "objectAttribute",
         "value": {
@@ -586,6 +754,14 @@
         },
         "optional": true
       },
+      "borderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
       "textColor": {
         "type": "objectAttribute",
         "value": {
@@ -594,7 +770,199 @@
         },
         "optional": true
       },
-      "borderColor": {
+      "textHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardBorderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardBackgroundColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardTextHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "cardImageBorderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "headerBackgroundColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "headerBorderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "titleTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "navTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "titleTextHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "navTextHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "footerTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "footerLinkColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "footerLinkHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "footerBorderColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleBackgroundColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleTitleTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleTagColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleTagTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleTagTextHoverColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleSubtitleTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleBodyTextColor": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "color"
+        },
+        "optional": true
+      },
+      "articleImageBorderColor": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",

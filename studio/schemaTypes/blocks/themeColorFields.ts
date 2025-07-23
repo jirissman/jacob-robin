@@ -2,12 +2,11 @@ import {defineField} from 'sanity'
 
 // Shared theme color fields that both light and dark themes will use
 export function themeColorFields(initialValues: {
-  primaryColor: string
-  secondaryColor: string
   backgroundColor: string
   surfaceColor: string
-  textColor: string
   borderColor: string
+  textColor: string
+  textHoverColor: string
 }) {
   return [
     defineField({
@@ -18,24 +17,11 @@ export function themeColorFields(initialValues: {
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'primaryColor',
-      title: 'Primary Color',
-      type: 'color',
-      description: 'Main brand color used throughout the site',
-      initialValue: initialValues.primaryColor,
-    }),
-    defineField({
-      name: 'secondaryColor',
-      title: 'Secondary Color',
-      type: 'color',
-      description: 'Secondary brand color for accents',
-      initialValue: initialValues.secondaryColor,
-    }),
-    defineField({
       name: 'backgroundColor',
       title: 'Background Color',
       type: 'color',
       description: 'Main background color',
+      group: ['backgroundColors', 'globalStyles'],
       initialValue: initialValues.backgroundColor,
     }),
     defineField({
@@ -43,21 +29,200 @@ export function themeColorFields(initialValues: {
       title: 'Surface Color',
       type: 'color',
       description: 'Color for elevated surfaces like cards, headers, etc.',
+      group: ['backgroundColors', 'globalStyles'],
       initialValue: initialValues.surfaceColor,
-    }),
-    defineField({
-      name: 'textColor',
-      title: 'Text Color',
-      type: 'color',
-      description: 'Primary text color',
-      initialValue: initialValues.textColor,
     }),
     defineField({
       name: 'borderColor',
       title: 'Border Color',
       type: 'color',
       description: 'Color for borders and dividers',
+      group: ['borderColors', 'globalStyles'],
       initialValue: initialValues.borderColor,
+    }),
+    defineField({
+      name: 'textColor',
+      title: 'Text Color',
+      type: 'color',
+      description: 'Primary text color',
+      group: ['textColors', 'globalStyles'],
+      initialValue: initialValues.textColor,
+    }),
+    defineField({
+      name: 'textHoverColor',
+      title: 'Text Hover Color',
+      type: 'color',
+      description: 'Color used for text hover states throughout the site',
+      group: ['textColors', 'globalStyles'],
+      initialValue: initialValues.textHoverColor,
+    }),
+    defineField({
+      name: 'cardBorderColor',
+      title: 'Card Border Color',
+      type: 'color',
+      description: 'Color for card borders',
+      group: ['borderColors', 'cardStyles'],
+    }),
+    defineField({
+      name: 'cardBackgroundColor',
+      title: 'Card Background Color',
+      type: 'color',
+      description: 'Background color for cards',
+      group: ['backgroundColors', 'cardStyles'],
+    }),
+    defineField({
+      name: 'cardHoverColor',
+      title: 'Card Hover Color',
+      type: 'color',
+      description: 'Background color for cards on hover',
+      group: ['backgroundColors', 'cardStyles'],
+    }),
+    defineField({
+      name: 'cardTextColor',
+      title: 'Card Text Color',
+      type: 'color',
+      description: 'Text color for cards',
+      group: ['textColors', 'cardStyles'],
+    }),
+    defineField({
+      name: 'cardTextHoverColor',
+      title: 'Card Text Hover Color',
+      type: 'color',
+      description: 'Text color for cards on hover',
+      group: ['textColors', 'cardStyles'],
+    }),
+    defineField({
+      name: 'cardImageBorderColor',
+      title: 'Card Image Border Color',
+      type: 'color',
+      description: 'Border color for card images',
+      group: ['borderColors', 'cardStyles'],
+    }),
+    defineField({
+      name: 'headerBackgroundColor',
+      title: 'Header Background Color',
+      type: 'color',
+      description: 'Background color for the header',
+      group: ['backgroundColors', 'headerStyles'],
+    }),
+    defineField({
+      name: 'headerBorderColor',
+      title: 'Header Border Color',
+      type: 'color',
+      description: 'Border color for the header',
+      group: ['borderColors', 'headerStyles'],
+    }),
+    defineField({
+      name: 'titleTextColor',
+      title: 'Title Text Color',
+      type: 'color',
+      description: 'Text color for the site title',
+      group: ['textColors', 'headerStyles'],
+    }),
+    defineField({
+      name: 'navTextColor',
+      title: 'Nav Text Color',
+      type: 'color',
+      description: 'Text color for navigation links (about/theme)',
+      group: ['textColors', 'headerStyles'],
+    }),
+    defineField({
+      name: 'titleTextHoverColor',
+      title: 'Title Text Hover Color',
+      type: 'color',
+      description: 'Text color for the site title on hover',
+      group: ['textColors', 'headerStyles'],
+    }),
+    defineField({
+      name: 'navTextHoverColor',
+      title: 'Nav Text Hover Color',
+      type: 'color',
+      description: 'Text color for navigation links on hover',
+      group: ['textColors', 'headerStyles'],
+    }),
+    defineField({
+      name: 'footerTextColor',
+      title: 'Footer Text Color',
+      type: 'color',
+      description: 'Text color for footer content',
+      group: ['textColors', 'footerStyles'],
+    }),
+    defineField({
+      name: 'footerLinkColor',
+      title: 'Footer Link Color',
+      type: 'color',
+      description: 'Color for footer links',
+      group: ['textColors', 'footerStyles'],
+    }),
+    defineField({
+      name: 'footerLinkHoverColor',
+      title: 'Footer Link Hover Color',
+      type: 'color',
+      description: 'Color for footer links on hover',
+      group: ['textColors', 'footerStyles'],
+    }),
+    defineField({
+      name: 'footerBorderColor',
+      title: 'Footer Border Color',
+      type: 'color',
+      description: 'Border color for the footer',
+      group: ['borderColors', 'footerStyles'],
+    }),
+    defineField({
+      name: 'articleBackgroundColor',
+      title: 'Article Background Color',
+      type: 'color',
+      description: 'Background color for article content',
+      group: ['backgroundColors', 'articleStyles'],
+    }),
+    defineField({
+      name: 'articleTitleTextColor',
+      title: 'Article Title Text Color',
+      type: 'color',
+      description: 'Text color for article titles',
+      group: ['textColors', 'articleStyles'],
+    }),
+    defineField({
+      name: 'articleTagColor',
+      title: 'Article Tag Color',
+      type: 'color',
+      description: 'Background color for article tags',
+      group: ['backgroundColors', 'articleStyles'],
+    }),
+    defineField({
+      name: 'articleTagTextColor',
+      title: 'Article Tag Text Color',
+      type: 'color',
+      description: 'Text color for article tags',
+      group: ['textColors', 'articleStyles'],
+    }),
+    defineField({
+      name: 'articleTagTextHoverColor',
+      title: 'Article Tag Text Hover Color',
+      type: 'color',
+      description: 'Text color for article tags on hover',
+      group: ['textColors', 'articleStyles'],
+    }),
+    defineField({
+      name: 'articleSubtitleTextColor',
+      title: 'Article Subtitle Text Color',
+      type: 'color',
+      description: 'Text color for article subtitles (date, author, other article information)',
+      group: ['textColors', 'articleStyles'],
+    }),
+    defineField({
+      name: 'articleBodyTextColor',
+      title: 'Article Body Text Color',
+      type: 'color',
+      description: 'Text color for article body content',
+      group: ['textColors', 'articleStyles'],
+    }),
+    defineField({
+      name: 'articleImageBorderColor',
+      title: 'Article Image Border Color',
+      type: 'color',
+      description: 'Border color for article images',
+      group: ['borderColors', 'articleStyles'],
     }),
   ]
 }

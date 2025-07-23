@@ -11,21 +11,67 @@ import type {
 import groq from "groq";
 
 const DARK_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigDark->{
-  "primaryColor": primaryColor.hex,
-  "secondaryColor": secondaryColor.hex,
+  "textHoverColor": textHoverColor.hex,
   "backgroundColor": backgroundColor.hex,
   "surfaceColor": surfaceColor.hex,
   "textColor": textColor.hex,
-  "borderColor": borderColor.hex
+  "borderColor": borderColor.hex,
+  "cardBorderColor": cardBorderColor.hex,
+  "cardBackgroundColor": cardBackgroundColor.hex,
+  "cardHoverColor": cardHoverColor.hex,
+  "cardTextColor": cardTextColor.hex,
+  "cardTextHoverColor": cardTextHoverColor.hex,
+  "cardImageBorderColor": cardImageBorderColor.hex,
+  "headerBackgroundColor": headerBackgroundColor.hex,
+  "headerBorderColor": headerBorderColor.hex,
+  "titleTextColor": titleTextColor.hex,
+  "navTextColor": navTextColor.hex,
+  "titleTextHoverColor": titleTextHoverColor.hex,
+  "navTextHoverColor": navTextHoverColor.hex,
+  "footerTextColor": footerTextColor.hex,
+  "footerLinkColor": footerLinkColor.hex,
+  "footerLinkHoverColor": footerLinkHoverColor.hex,
+  "footerBorderColor": footerBorderColor.hex,
+  "articleBackgroundColor": articleBackgroundColor.hex,
+  "articleTitleTextColor": articleTitleTextColor.hex,
+  "articleTagColor": articleTagColor.hex,
+  "articleTagTextColor": articleTagTextColor.hex,
+  "articleTagTextHoverColor": articleTagTextHoverColor.hex,
+  "articleSubtitleTextColor": articleSubtitleTextColor.hex,
+  "articleBodyTextColor": articleBodyTextColor.hex,
+  "articleImageBorderColor": articleImageBorderColor.hex
 }`;
 
 const LIGHT_THEME_QUERY = groq`*[_type == "activeStyle"][0].activeConfigLight->{
-  "primaryColor": primaryColor.hex,
-  "secondaryColor": secondaryColor.hex,
+  "textHoverColor": textHoverColor.hex,
   "backgroundColor": backgroundColor.hex,
   "surfaceColor": surfaceColor.hex,
   "textColor": textColor.hex,
-  "borderColor": borderColor.hex
+  "borderColor": borderColor.hex,
+  "cardBorderColor": cardBorderColor.hex,
+  "cardBackgroundColor": cardBackgroundColor.hex,
+  "cardHoverColor": cardHoverColor.hex,
+  "cardTextColor": cardTextColor.hex,
+  "cardTextHoverColor": cardTextHoverColor.hex,
+  "cardImageBorderColor": cardImageBorderColor.hex,
+  "headerBackgroundColor": headerBackgroundColor.hex,
+  "headerBorderColor": headerBorderColor.hex,
+  "titleTextColor": titleTextColor.hex,
+  "navTextColor": navTextColor.hex,
+  "titleTextHoverColor": titleTextHoverColor.hex,
+  "navTextHoverColor": navTextHoverColor.hex,
+  "footerTextColor": footerTextColor.hex,
+  "footerLinkColor": footerLinkColor.hex,
+  "footerLinkHoverColor": footerLinkHoverColor.hex,
+  "footerBorderColor": footerBorderColor.hex,
+  "articleBackgroundColor": articleBackgroundColor.hex,
+  "articleTitleTextColor": articleTitleTextColor.hex,
+  "articleTagColor": articleTagColor.hex,
+  "articleTagTextColor": articleTagTextColor.hex,
+  "articleTagTextHoverColor": articleTagTextHoverColor.hex,
+  "articleSubtitleTextColor": articleSubtitleTextColor.hex,
+  "articleBodyTextColor": articleBodyTextColor.hex,
+  "articleImageBorderColor": articleImageBorderColor.hex
 }`;
 
 const TYPOGRAPHY_QUERY = groq`*[_type == "activeStyle"][0].activeTypography->{

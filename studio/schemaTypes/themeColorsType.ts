@@ -9,13 +9,46 @@ export const lightThemeType = defineType({
   type: 'document',
   description: 'Color configuration for light theme',
   icon: DropIcon,
+  groups: [
+    {
+      name: 'globalStyles',
+      title: 'Global Colors',
+    },
+    {
+      name: 'backgroundColors',
+      title: 'Background Colors',
+    },
+    {
+      name: 'borderColors',
+      title: 'Border Colors',
+    },
+    {
+      name: 'textColors',
+      title: 'Text Colors',
+    },
+    {
+      name: 'headerStyles',
+      title: 'Header Colors',
+    },
+    {
+      name: 'footerStyles',
+      title: 'Footer Colors',
+    },
+    {
+      name: 'cardStyles',
+      title: 'Card Colors',
+    },
+    {
+      name: 'articleStyles',
+      title: 'Article Colors',
+    },
+  ],
   fields: themeColorFields({
-    primaryColor: DEFAULT_COLORS.light.primaryColor,
-    secondaryColor: DEFAULT_COLORS.light.secondaryColor,
     backgroundColor: DEFAULT_COLORS.light.backgroundColor,
     surfaceColor: DEFAULT_COLORS.light.surfaceColor,
-    textColor: DEFAULT_COLORS.light.textColor,
     borderColor: DEFAULT_COLORS.light.borderColor,
+    textColor: DEFAULT_COLORS.light.textColor,
+    textHoverColor: DEFAULT_COLORS.light.textHoverColor,
   }),
   preview: {
     select: {
@@ -36,13 +69,46 @@ export const darkThemeType = defineType({
   type: 'document',
   description: 'Color configuration for dark theme',
   icon: DropIcon,
+  groups: [
+    {
+      name: 'globalStyles',
+      title: 'Global Colors',
+    },
+    {
+      name: 'backgroundColors',
+      title: 'Background Colors',
+    },
+    {
+      name: 'borderColors',
+      title: 'Border Colors',
+    },
+    {
+      name: 'textColors',
+      title: 'Text Colors',
+    },
+    {
+      name: 'headerStyles',
+      title: 'Header Colors',
+    },
+    {
+      name: 'footerStyles',
+      title: 'Footer Colors',
+    },
+    {
+      name: 'cardStyles',
+      title: 'Card Colors',
+    },
+    {
+      name: 'articleStyles',
+      title: 'Article Colors',
+    },
+  ],
   fields: themeColorFields({
-    primaryColor: DEFAULT_COLORS.dark.primaryColor,
-    secondaryColor: DEFAULT_COLORS.dark.secondaryColor,
     backgroundColor: DEFAULT_COLORS.dark.backgroundColor,
     surfaceColor: DEFAULT_COLORS.dark.surfaceColor,
-    textColor: DEFAULT_COLORS.dark.textColor,
     borderColor: DEFAULT_COLORS.dark.borderColor,
+    textColor: DEFAULT_COLORS.dark.textColor,
+    textHoverColor: DEFAULT_COLORS.dark.textHoverColor,
   }),
   preview: {
     select: {
