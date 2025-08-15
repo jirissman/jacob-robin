@@ -16,23 +16,23 @@ if (!about) {
 
 <Layout title={`${about.title}`}>
   <section class="about">
-    <div class="about__layout">
-      {
-        about.image ? (
-          <div class="about__image">
-            <img
-              src={urlFor(about.image as Image).url()}
-              alt={about.image.alt || "About image"}
-            />
-          </div>
-        ) : null
-      }
-      <div class="about__content">
-        <div class="about__text">
-          <PortableText value={about.body!} components={{ block: Block }} />
+    <!-- <div class="about__layout"> -->
+    {
+      about.image ? (
+        <div class="about__image">
+          <img
+            src={urlFor(about.image as Image).url()}
+            alt={about.image.alt || "About image"}
+          />
         </div>
+      ) : null
+    }
+    <div class="about__content">
+      <div class="about__text">
+        <PortableText value={about.body!} components={{ block: Block }} />
       </div>
     </div>
+    <!-- </div> -->
   </section>
 </Layout>
 
@@ -52,14 +52,16 @@ if (!about) {
 
   .about__image {
     flex: 1 0 300px;
-    margin: 0;
+    max-width: 45%;
+    margin: 0 0 0 2rem;
+    float: right;
   }
 
   .about__image img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--drop-shadow-sm);
   }
 
   .about__text {
@@ -142,6 +144,8 @@ if (!about) {
     .about__image {
       flex: none;
       text-align: center;
+      max-width: 100%;
+      margin: var(--space-3) 0;
     }
   }
 
@@ -162,6 +166,8 @@ if (!about) {
     .about__image {
       flex: none;
       text-align: center;
+      max-width: 100%;
+      margin: var(--space-3) 0;
     }
 
     .about__text p {
