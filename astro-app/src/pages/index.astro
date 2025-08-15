@@ -9,6 +9,7 @@ const posts = await getPosts();
 <Layout title="Jacob Robin | Creative Writer">
   {
     posts.length > 0 && (
+      <section class="posts__header"/>
       <section class="posts">
         <div class="posts__grid">
           {posts.map((post) => (
@@ -46,7 +47,7 @@ const posts = await getPosts();
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--space-5);
     max-width: 100%;
-    align-items: center;
+    align-items: start;
     justify-content: center;
   }
 
@@ -62,7 +63,7 @@ const posts = await getPosts();
     .posts__grid {
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: var(--space-4);
-      align-items: center;
+      align-items: start;
     }
   }
 
@@ -74,7 +75,7 @@ const posts = await getPosts();
     .posts__grid {
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: var(--space-4);
-      align-items: center;
+      align-items: start;
     }
   }
 
@@ -86,7 +87,7 @@ const posts = await getPosts();
     .posts__grid {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: var(--space-4);
-      align-items: center;
+      align-items: stretch;
     }
   }
 
@@ -98,7 +99,7 @@ const posts = await getPosts();
     .posts__grid {
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: var(--space-5);
-      align-items: center;
+      align-items: start;
     }
   }
 </style>
