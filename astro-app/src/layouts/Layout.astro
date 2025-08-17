@@ -16,10 +16,14 @@ import {
 } from "../../../shared/defaults";
 
 interface Props {
-  title: string;
+  title?: string | undefined;
+  description?: string | undefined;
 }
 
-const { title } = Astro.props;
+const {
+  title = "Jacob Robin | Creative Writer",
+  description = "Jacob Robin is a creative writer specializing in immersive storytelling and engaging content.",
+} = Astro.props;
 const darkTheme = await getDarkTheme();
 const lightTheme = await getLightTheme();
 const typography = await getTypography();
@@ -30,6 +34,21 @@ const layout = await getLayoutSettings();
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KPX99W9Q");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -47,6 +66,15 @@ const layout = await getLayoutSettings();
     <ThemeManager defaultTheme="auto" />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KPX99W9Q"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <div class="container">
       <Header />
       <main>
