@@ -1,0 +1,55 @@
+---
+const canonicalURL = new URL(Astro.url.pathname, Astro.url);
+const siteURL = new URL("/", Astro.url);
+const webSiteSchema = new URL("/#/schema/WebSite", Astro.url);
+const jacobSchema = new URL("/#/schema/Person/jacobrobin", Astro.url);
+const josephSchema = new URL("/#/schema/Person/josephrissman", Astro.url);
+
+const { type, title, description, pubDate, updatedDate } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": webSiteSchema,
+      name: title,
+      description: description,
+      url: siteURL,
+      publisher: {
+        "@type": "Person",
+        "@id": josephSchema,
+        name: "Joseph Rissman",
+        url: "https://www.josephrissman.com",
+        sameAs: [
+          "https://www.linkedin.com/in/joseph-rissman/",
+          "https://github.com/jirissman",
+        ],
+      },
+    },
+    ...(type
+      ? [
+          {
+            "@type": type,
+            "@id": canonicalURL,
+            url: canonicalURL,
+            name: title,
+            headline: title,
+            description: description,
+            isPartOf: {
+              "@id": webSiteSchema,
+            },
+            datePublished: pubDate,
+            dateModified: updatedDate,
+            author: {
+              "@type": "Person",
+              "@id": jacobSchema,
+            },
+          },
+        ]
+      : []),
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

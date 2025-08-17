@@ -21,7 +21,12 @@ if (!post) {
 // TODO: Consider extracting repeated magic numbers (750, 380, 200) to CSS custom properties
 ---
 
-<Layout title={post.title!}>
+<Layout
+  type="Article"
+  title={post.title!}
+  pubDate={post.publishedAt}
+  updatedDate={post._updatedAt}
+>
   <section class="post">
     {
       post.mainImage ? (
