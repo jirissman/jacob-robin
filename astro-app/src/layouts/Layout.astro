@@ -1,7 +1,7 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ClientRouter } from "astro:transitions";
-import { Header, Footer, ThemeManager } from "../components";
+import { Header, Footer, ThemeManager, HeadMeta } from "../components";
 import "../styles/global.css";
 import {
   getDarkTheme,
@@ -14,12 +14,25 @@ import {
   DEFAULT_TYPOGRAPHY,
   DEFAULT_LAYOUT,
 } from "../../../shared/defaults";
+import type { Image } from "@sanity/types";
 
 interface Props {
-  title: string;
+  type?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  pubDate?: string | undefined;
+  updatedDate?: string | undefined;
+  image?: Image | undefined;
 }
 
-const { title } = Astro.props;
+const {
+  type,
+  title = "Jacob Robin | Creative Writer",
+  description = "Jacob Robin is a creative writer specializing in immersive storytelling and engaging content.",
+  pubDate,
+  updatedDate,
+  image,
+} = Astro.props;
 const darkTheme = await getDarkTheme();
 const lightTheme = await getLightTheme();
 const typography = await getTypography();
@@ -29,10 +42,15 @@ const layout = await getLayoutSettings();
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <HeadMeta
+      type={type}
+      title={title}
+      description={description}
+      pubDate={pubDate}
+      updatedDate={updatedDate}
+      image={image}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
 
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

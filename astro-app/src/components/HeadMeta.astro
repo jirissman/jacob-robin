@@ -1,0 +1,80 @@
+---
+import type { Image } from "@sanity/types";
+
+interface Props {
+  type?: string | undefined;
+  title: string;
+  description: string;
+  pubDate?: string | undefined;
+  updatedDate?: string | undefined;
+  image?: Image | undefined;
+}
+const { type, title, description, pubDate, updatedDate, image } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.url);
+const siteURL = new URL("/", Astro.url);
+const webSiteSchema = new URL("/#/schema/WebSite", Astro.url);
+const jacobSchema = new URL("/#/schema/Person/jacobrobin", Astro.url);
+const josephSchema = new URL("/#/schema/Person/josephrissman", Astro.url);
+const imageSchema = new URL("/#/schema/Image/" + image?.asset?._ref, Astro.url);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": webSiteSchema,
+      name: title,
+      description: description,
+      url: siteURL,
+      publisher: {
+        "@type": "Person",
+        "@id": josephSchema,
+        name: "Joseph Rissman",
+        url: "https://www.josephrissman.com",
+        sameAs: [
+          "https://www.linkedin.com/in/joseph-rissman/",
+          "https://github.com/jirissman",
+        ],
+      },
+    },
+    ...(type
+      ? [
+          {
+            "@type": type,
+            "@id": canonicalURL,
+            url: canonicalURL,
+            name: title,
+            headline: title,
+            description: description,
+            isPartOf: {
+              "@id": webSiteSchema,
+            },
+            ...(image
+              ? {
+                  image: {
+                    "@id": imageSchema,
+                    caption: image?.alt,
+                  },
+                }
+              : {}),
+            datePublished: pubDate,
+            dateModified: updatedDate,
+            author: {
+              "@type": "Person",
+              "@id": jacobSchema,
+              name: "Jacob Robin",
+              url: siteURL,
+            },
+          },
+        ]
+      : []),
+  ],
+};
+---
+
+<meta charset="UTF-8" />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<meta name="description" content={description} />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
