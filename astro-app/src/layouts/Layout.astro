@@ -14,6 +14,7 @@ import {
   DEFAULT_TYPOGRAPHY,
   DEFAULT_LAYOUT,
 } from "../../../shared/defaults";
+import type { Image } from "@sanity/types";
 
 interface Props {
   type?: string | undefined;
@@ -21,6 +22,7 @@ interface Props {
   description?: string | undefined;
   pubDate?: string | undefined;
   updatedDate?: string | undefined;
+  image?: Image | undefined;
 }
 
 const {
@@ -29,6 +31,7 @@ const {
   description = "Jacob Robin is a creative writer specializing in immersive storytelling and engaging content.",
   pubDate,
   updatedDate,
+  image,
 } = Astro.props;
 const darkTheme = await getDarkTheme();
 const lightTheme = await getLightTheme();
@@ -46,6 +49,7 @@ const layout = await getLayoutSettings();
       description={description}
       pubDate={pubDate}
       updatedDate={updatedDate}
+      image={image}
     />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
