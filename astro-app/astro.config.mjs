@@ -17,16 +17,11 @@ import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 
-// Change this depending on your hosting provider (Vercel, Netlify etc)
-// https://docs.astro.build/en/guides/server-side-rendering/#adding-an-adapter
-import vercel from "@astrojs/vercel";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://jacob-robin.vercel.app",
-  // Server+adapter is required to support embedded Sanity Studio
-  output: "server",
-  adapter: vercel(),
+  // Static generation (SSG) - embedded Sanity Studio not used (runs separately)
+  output: "static",
   integrations: [
     sanity({
       projectId,
