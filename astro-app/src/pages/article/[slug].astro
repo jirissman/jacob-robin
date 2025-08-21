@@ -1,6 +1,5 @@
 ---
-import { PortableText } from "astro-portabletext";
-import Block from "../../components/Block.astro";
+import PortableText from "../../components/PortableText.astro";
 import Layout from "../../layouts/Layout.astro";
 import dayjs from "dayjs";
 import { urlFor } from "../../utils/image";
@@ -67,7 +66,7 @@ const pubDate = dayjs(post.publishedAt).format();
         {dayjs(post.publishedAt).format("MMMM D, YYYY")}
       </p>
       <div class="post__content">
-        <PortableText value={post.body!} components={{ block: Block }} />
+        <PortableText value={post.body!} />
       </div>
       <!-- TODO: Add prev/next post navigation -->
     </div>

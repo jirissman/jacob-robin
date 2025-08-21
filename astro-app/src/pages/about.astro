@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Block from "../components/Block.astro";
-import { PortableText } from "astro-portabletext";
+import PortableText from "../components/PortableText.astro";
 import { urlFor } from "../utils/image";
 import { getAbout } from "../utils/sanity";
 import { type Image } from "sanity";
@@ -29,7 +28,7 @@ if (!about) {
     }
     <div class="about__content">
       <div class="about__text">
-        <PortableText value={about.body!} components={{ block: Block }} />
+        <PortableText value={about.body!} />
       </div>
     </div>
     <!-- </div> -->
