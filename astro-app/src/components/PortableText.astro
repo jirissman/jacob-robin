@@ -4,13 +4,14 @@ import PortableTextImage from "./PortableTextImage.astro";
 import Block from "./Block.astro";
 import type { PortableTextComponents } from "astro-portabletext/types";
 
-const { value } = Astro.props;
+const { value, components: moreComponents } = Astro.props;
 
 const components: Partial<PortableTextComponents> = {
   block: Block,
   type: {
     image: PortableTextImage,
   },
+  ...moreComponents,
 };
 ---
 
