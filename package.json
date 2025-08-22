@@ -14,9 +14,9 @@
     "Real-time"
   ],
   "bugs": {
-    "url": "https://github.com/sanity-io/sanity-template-astro-clean/issues"
+    "url": "https://github.com/jirissman/jacob-robin/issues"
   },
-  "homepage": "https://github.com/sanity-io/sanity-template-astro-clean#readme",
+  "homepage": "https://github.com/jirissman/jacob-robin#readme",
   "workspaces": [
     "studio",
     "astro-app"
