@@ -1,12 +1,22 @@
 ---
+import type { InferGetStaticParamsType } from "astro";
 import PortableText from "../../components/PortableText.astro";
 import Layout from "../../layouts/Layout.astro";
 import dayjs from "dayjs";
 import { urlFor } from "../../utils/image";
-import { getPost } from "../../utils/sanity";
+import { getPost, getPosts } from "../../utils/sanity";
 import { type Image } from "sanity";
 
-const { slug } = Astro.params;
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug!.current },
+  }));
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+const { slug } = Astro.params as Params;
 if (!slug) {
   return Astro.redirect("/404");
 }
