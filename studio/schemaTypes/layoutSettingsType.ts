@@ -31,7 +31,7 @@ export const layoutSettingsType = defineType({
       name: 'customMaxWidth',
       title: 'Custom Max Width',
       type: 'string',
-      description: 'CSS width value (e.g., "1200px", "90rem")',
+      description: "CSS width value (e.g., \"1200px\", \"90rem\")",
       hidden: ({parent}) => parent?.maxWidth !== 'custom',
     }),
   ],
