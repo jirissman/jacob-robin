@@ -1,91 +1,144 @@
-# Clean Astro + Sanity app
+# Jacob Robin
 
-This template includes an [Astro](https://astro.build/) app with a [Sanity Studio](https://www.sanity.io/) – an open-source React application that connects to your Sanity project’s hosted dataset. The Studio is configured locally and can then be deployed for content collaboration.
+Personal website for Jacob Robin, a creative writer and storyteller. This site is built with [Astro](https://astro.build/) for the frontend and [Sanity Studio](https://www.sanity.io/) for content management, allowing for dynamic content creation and a customizable reading experience.
 
 ## Features
 
-- Fetch content as data from [the Sanity Content Lake](https://www.sanity.io/docs/datastore)
-- Render block content with [Portable Text](https://www.sanity.io/docs/presenting-block-text)
-- Manage and create content with the intuitive [Sanity Studio](https://www.sanity.io/docs/sanity-studio).
-- Crop and render images with [Sanity Image URLs](https://www.sanity.io/docs/presenting-images)
+- **Creative Writing Blog**: Share articles, stories, and creative writing with a clean, customizable interface
+- **Dynamic Content Management**: Create and manage content using the intuitive [Sanity Studio](https://www.sanity.io/docs/sanity-studio)
+- **Customizable Themes**: Personalize colors, typography, and layout through the content management system
+- **Rich Text Content**: Write with [Portable Text](https://www.sanity.io/docs/presenting-block-text) for flexible content formatting
+- **Responsive Design**: Optimized reading experience across all devices
+- **Fast Performance**: Built with [Astro](https://astro.build/) for optimal loading speeds
 
-## Demo
+## Live Site
 
-https://template-astro-clean.sanity.build
+Visit the website at: [https://jacob-robin.vercel.app](https://jacob-robin.vercel.app)
 
-## Getting Started
+## Development Setup
 
-### Install the template
+This project uses npm workspaces with two main applications: the Astro frontend (`astro-app`) and Sanity Studio (`studio`).
 
-#### 1. Initialize template with Sanity CLI
+### Prerequisites
 
-Run the command in your Terminal to initialize this template on your local computer.
+- Node.js 18+
+- npm
+- A Sanity project (for content management)
 
-See the documentation if you are [having issues with the CLI](https://www.sanity.io/help/cli-errors).
+### Environment Setup
 
-```shell
-npm create sanity@latest -- --template sanity-io/sanity-template-astro-clean
-```
+1. Clone this repository
+2. Install dependencies:
 
-#### 2. Run Studio and Astro app locally
+   ```shell
+   npm install
+   ```
 
-Navigate to the template directory using `cd <your app name>`, and start the development servers by running the following command
+3. Create a `.env` file in the root directory with your Sanity project details:
+   ```
+   SANITY_STUDIO_DATASET=production
+   SANITY_STUDIO_PROJECT_ID=your-project-id
+   SANITY_STUDIO_STUDIO_HOST=your-studio-host
+   PUBLIC_SANITY_PROJECT_ID=your-project-id
+   PUBLIC_SANITY_DATASET=production
+   ```
+
+### Running Locally
+
+Start both the Astro app and Studio concurrently:
 
 ```shell
 npm run dev
 ```
 
-#### 3. Open the app and sign in to the Studio
+This will start:
 
-Open the Astro app running locally in your browser on [http://localhost:4321](http://localhost:4321).
+- Astro app at [http://localhost:4321](http://localhost:4321)
+- Sanity Studio at [http://localhost:3333](http://localhost:3333)
 
-Open the Studio running locally in your browser on [http://localhost:3333](http://localhost:3333). You should now see a screen prompting you to log in to the Studio. Use the same service (Google, GitHub, or email) that you used when you logged in to the CLI.
-
-### Adding content with Sanity
-
-#### 1. Publish your first document
-
-The template comes pre-defined with a schema containing a `Post` document type.
-
-From the Studio, click "+ Create" and select the `Post` document type. Go ahead and create and publish the document.
-
-Your content should now appear in your Astro app ([http://localhost:4321](http://localhost:4321))
-
-#### 2. Extending the Sanity schema
-
-The schema for the `Post` document type is defined in the `studio/src/schemaTypes/post.ts` file. You can [add more document types](https://www.sanity.io/docs/schema-types) to the schema to suit your needs.
-
-### Deploying your application and inviting editors
-
-#### 1. Deploy Sanity Studio
-
-Your Astro frontend (`/astro-app`) and Sanity Studio (`/studio`) are still only running on your local computer.
-
-Back in your Studio directory (`/studio`), run the following command to deploy your Sanity Studio.
+You can also run them individually:
 
 ```shell
+# Astro app only
+cd astro-app && npm run dev
+
+# Studio only
+cd studio && npm run dev
+```
+
+### Building
+
+Build both applications:
+
+```shell
+# Build Astro app
+cd astro-app && npm run build
+
+# Build Studio
+cd studio && npm run build
+```
+
+### Content Management
+
+Once you have the applications running:
+
+1. **Access the Studio**: Navigate to [http://localhost:3333](http://localhost:3333) and sign in with your Sanity account
+2. **Create Content**: Use the Studio interface to create blog posts, update the about page, and manage site settings
+3. **Customize Themes**: Modify colors, typography, and layout settings through the Studio
+4. **View Changes**: Your content will automatically appear on the Astro frontend at [http://localhost:4321](http://localhost:4321)
+
+### Content Types
+
+The site includes several content types:
+
+- **Posts**: Blog articles and creative writing pieces
+- **About**: Personal information and bio
+- **Theme Settings**: Colors, typography, and layout customization
+- **Categories & Tags**: Content organization
+
+## Deployment
+
+This website is deployed on Vercel with automatic deployments from the main branch.
+
+### Deploying Studio
+
+To deploy the Sanity Studio:
+
+```shell
+cd studio
 npx sanity deploy
 ```
 
-#### 2. Deploy Astro app to Vercel
+### Deploying Frontend
 
-You have the freedom to deploy your Astro app to your hosting provider of choice. With Vercel and GitHub being a popular choice, we'll cover the basics of that approach.
+The Astro frontend is configured for Vercel deployment and will automatically deploy when changes are pushed to the main branch.
 
-1. Create a GitHub repository from this project. [Learn more](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github).
-2. Create a new Vercel project and connect it to your Github repository.
-3. Set the `Root Directory` to your Astro app.
-4. Configure your Environment Variables.
+For manual deployment or other platforms:
 
-#### 3. Invite a collaborator
+1. Build the application: `cd astro-app && npm run build`
+2. Deploy the `dist` folder to your hosting provider
+3. Ensure environment variables are configured in your hosting platform
 
-Now that you’ve deployed your Astro application and Sanity Studio, you can optionally invite a collaborator to your Studio. Open up [Manage](https://www.sanity.io/manage), select your project and click "Invite project members"
+### Environment Variables for Production
 
-They will be able to access the deployed Studio, where you can collaborate together on creating content.
+Make sure to set these environment variables in your deployment platform:
+
+- `PUBLIC_SANITY_PROJECT_ID`
+- `PUBLIC_SANITY_DATASET`
+- `SANITY_STUDIO_PROJECT_ID`
+- `SANITY_STUDIO_DATASET`
+- `SANITY_STUDIO_STUDIO_HOST`
+
+## Tech Stack
+
+- **Frontend**: [Astro](https://astro.build/) - Static site generator with dynamic capabilities
+- **CMS**: [Sanity](https://www.sanity.io/) - Headless content management system
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- **Deployment**: [Vercel](https://vercel.com/) - Serverless deployment platform
+- **Content**: [Portable Text](https://www.sanity.io/docs/presenting-block-text) - Rich text format
 
 ## Resources
 
 - [Sanity documentation](https://www.sanity.io/docs/)
 - [Astro documentation](https://docs.astro.build/en/getting-started/)
-- [Join the Sanity Community](https://slack.sanity.io)
-- [Learn Sanity](https://www.sanity.io/learn)
-- [Add Visual Editing (Presentation) to your project](https://www.sanity.io/guides/sanity-astro-blog)
+- [Tailwind CSS documentation](https://tailwindcss.com/docs)
