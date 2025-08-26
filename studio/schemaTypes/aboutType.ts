@@ -42,5 +42,12 @@ export const aboutType = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'socialLinks',
+      title: 'Social Links',
+      type: 'array',
+      of: [{type: 'link'}],
+      description: 'Add your social media profiles and other important links',
+    }),
   ],
 })

@@ -7,6 +7,7 @@ import type {
   POSTS_QUERYResult,
   POST_BY_SLUG_QUERYResult,
   ABOUT_QUERYResult,
+  LINKS_QUERYResult,
 } from "../../../shared/sanity.types";
 import groq from "groq";
 
@@ -93,6 +94,8 @@ const POST_BY_SLUG_QUERY = groq`*[_type == "post" && slug.current == $slug][0]{.
 
 const ABOUT_QUERY = groq`*[_type == "about"][0]`;
 
+const LINKS_QUERY = groq`*[_type == "about"][0].socialLinks[]`;
+
 export async function getDarkTheme(): Promise<DARK_THEME_QUERYResult> {
   return await sanityClient.fetch(DARK_THEME_QUERY);
 }
@@ -121,4 +124,8 @@ export async function getPost(slug: string): Promise<POST_BY_SLUG_QUERYResult> {
 
 export async function getAbout(): Promise<ABOUT_QUERYResult> {
   return await sanityClient.fetch(ABOUT_QUERY);
+}
+
+export async function getLinks(): Promise<LINKS_QUERYResult> {
+  return await sanityClient.fetch(LINKS_QUERY);
 }

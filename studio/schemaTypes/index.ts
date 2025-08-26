@@ -8,6 +8,7 @@ import {activeStyleType} from './activeStyleType'
 import {lightThemeType, darkThemeType} from './themeColorsType'
 import {typographyType} from './typographyType'
 import {layoutSettingsType} from './layoutSettingsType'
+import {linkType} from './blocks/linkType'
 
 export const schemaTypes: {types: SchemaTypeDefinition[]} = {
   types: [
@@ -21,5 +22,6 @@ export const schemaTypes: {types: SchemaTypeDefinition[]} = {
     darkThemeType,
     typographyType,
     layoutSettingsType,
+    linkType,
   ],
 }

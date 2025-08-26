@@ -1,8 +1,31 @@
 # Jacob Robin - Astro + Sanity CMS Application
 
-Jacob Robin is a modern web application built with Astro (frontend) and Sanity Studio (content management) using a monorepo structure with npm workspaces.
+Jacob Robin is a modern web application built with Astro (frontend) and Sanity Studio (content management) using a monorepo structure with npm workspaces. The application features a dynamic theming system, custom content schemas, and full-stack type safety through generated TypeScript types.
 
 Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
+
+## Architecture Overview
+
+### Core Data Flow
+
+1. **Content Creation**: Sanity Studio (`/studio/`) → Schema definitions → Generated TypeScript types
+2. **Data Fetching**: Astro pages → GROQ queries via `sanityClient` → Rendered components
+3. **Theming**: Sanity CMS manages theme configurations → CSS custom properties → Dynamic theme switching
+
+### Key Integration Points
+
+- **Type Safety**: Sanity schema auto-generates comprehensive TypeScript types in `/shared/sanity.types.ts` covering all content types and GROQ query results
+- **Theme System**: `ThemeManager.astro` handles client-side theme switching with CSS custom properties
+- **Content Rendering**: `PortableText.astro` renders rich content with custom components (`Block.astro`, `PortableTextImage.astro`)
+- **Studio Structure**: Custom Studio layout defined in `/studio/structure.ts` with organized content sections
+
+### Schema Architecture
+
+Sanity schemas are modular with clear separation:
+
+- `/studio/schemaTypes/documents/` - Main content types (posts, about)
+- `/studio/schemaTypes/blocks/` - Reusable content blocks and references
+- Theme configs stored as documents (`activeStyle`, `lightTheme`, `darkTheme`)
 
 ## Working Effectively
 
@@ -160,10 +183,12 @@ When making changes to the application:
 ### Important Files
 
 - `package.json` - Root workspace configuration with `dev` and `typegen` scripts
-- `astro-app/astro.config.mjs` - Astro configuration with Sanity integration
-- `studio/sanity.config.ts` - Sanity Studio configuration
-- `studio/env.ts` - Environment variable validation for Studio
+- `astro-app/astro.config.mjs` - Astro configuration with Sanity integration and Vercel adapter
+- `studio/sanity.config.ts` - Sanity Studio configuration with custom structure
+- `studio/env.ts` - Environment variable validation for Studio (throws errors if missing)
 - `shared/sanity.types.ts` - Generated TypeScript types from Sanity schema
+- `astro-app/src/utils/sanity.ts` - GROQ queries and Sanity client configuration
+- `studio/structure.ts` - Custom Studio navigation and content organization
 
 ### Workspace Scripts
 
@@ -189,16 +214,37 @@ When making changes to the application:
 
 ### Adding New Content Types
 
-1. Create schema in `/studio/schemaTypes/`
-2. Add to `/studio/schemaTypes/index.ts`
-3. Run `npm run typegen` to update types
-4. Update Astro pages/components to use new types
+1. Create schema in `/studio/schemaTypes/` (follow existing patterns: `postType.ts`, `aboutType.ts`)
+2. Add to `/studio/schemaTypes/index.ts` exports array
+3. Run `npm run typegen` to regenerate TypeScript types in `/shared/sanity.types.ts`
+4. Update `/studio/structure.ts` to add to Studio navigation (optional)
+5. Create GROQ queries in `/astro-app/src/utils/sanity.ts` following existing patterns
+6. Update Astro pages/components to use new types from shared directory
 
-### Modifying Styles
+### Working with Themes
 
-1. Edit TailwindCSS classes in Astro components
-2. Verify changes in both light/dark themes
-3. Test responsive behavior
+The theming system uses a three-layer approach:
+
+1. **Sanity Schemas**: `themeColorsType.ts` defines color fields for light/dark themes
+2. **CSS Custom Properties**: `ThemeManager.astro` applies theme colors as CSS variables
+3. **Component Styling**: Components use `var(--property-name)` for dynamic theming
+
+**Key Files:**
+
+- `/studio/schemaTypes/themeColorsType.ts` - Theme color definitions
+- `/astro-app/src/components/ThemeManager.astro` - Client-side theme management
+- `/astro-app/src/utils/sanity.ts` - Theme data fetching (DARK_THEME_QUERY, LIGHT_THEME_QUERY)
+
+### Modifying Content Schemas
+
+When changing schema fields:
+
+1. Update schema files in `/studio/schemaTypes/`
+2. Run `npm run typegen` to update TypeScript types
+3. Update any GROQ queries in `/astro-app/src/utils/sanity.ts`
+4. Update components that consume the changed data
+
+**Important**: Schema changes may require Studio restart (`npm run dev` in studio workspace)
 
 ### Working with Environment Variables
 
