@@ -1,13 +1,7 @@
 ---
-// Footer component
 import { getLinks } from "../utils/sanity";
-
+import { type Link } from "../../../shared/sanity.types";
 const socialLinks = await getLinks();
-
-type SocialLink = {
-  title: string;
-  url: string;
-};
 ---
 
 <footer class="footer">
@@ -15,7 +9,7 @@ type SocialLink = {
     <div class="footer__social">
       {
         socialLinks &&
-          socialLinks.map((link: SocialLink) => (
+          socialLinks.map((link: Link) => (
             <a href={link.url} target="_blank" rel="noopener noreferrer">
               {link.title}
             </a>
