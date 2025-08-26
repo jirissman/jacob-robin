@@ -27,14 +27,14 @@ export const postType = defineType({
     defineField({
       name: 'categories',
       title: 'Categories',
-      description: 'Select one or more categories for this post.',
+      description: 'Categories are displayed on the homepage and article pages.',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'category'}]}],
     }),
     defineField({
       name: 'tags',
       title: 'Tags',
-      description: 'Add relevant tags to categorize the post.',
+      description: 'Tags are only displayed on the article page.',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'tag'}]}],
     }),
