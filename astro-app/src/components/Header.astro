@@ -26,6 +26,7 @@ import { ThemeToggleButton } from "../components";
     right: 0;
     top: 0;
     z-index: 10;
+    will-change: transform;
 
     & .header__brand {
       flex-shrink: 0;
@@ -87,3 +88,55 @@ import { ThemeToggleButton } from "../components";
     }
   }
 </style>
+
+<script>
+  // Track the last scroll position to calculate scroll direction and distance
+  let lastScrollY = 0;
+  let header: HTMLElement;
+
+  function updateHeader() {
+    // Get current scroll position and calculate how much user scrolled
+    const scrollY = window.scrollY;
+    const scrollDiff = scrollY - lastScrollY;
+
+    if (!header) return;
+
+    if (scrollY <= 0) {
+      // At the top of the page - always show the header fully
+      header.style.transform = "translateY(0px)";
+    } else {
+      // Get the current translateY value from the header's transform style
+      const currentY = parseFloat(
+        header.style.transform.match(/-?\d+/)?.[0] || "0"
+      );
+
+      // Calculate new position: move header opposite to scroll direction
+      // - Scroll down (positive scrollDiff) → move header up (subtract from currentY)
+      // - Scroll up (negative scrollDiff) → move header down (add to currentY)
+      // Clamp between 0 (fully visible) and -headerHeight (fully hidden)
+      const newY = Math.max(
+        Math.min(currentY - scrollDiff, 0),
+        -header.offsetHeight
+      );
+
+      header.style.transform = `translateY(${newY}px)`;
+    }
+
+    // Store current scroll position for next comparison
+    lastScrollY = scrollY;
+  }
+
+  function init() {
+    // Find the header element and set up scroll tracking
+    header = document.querySelector(".header")!;
+    header.style.transform = "translateY(0px)"; // Start with header visible
+    lastScrollY = 0; // Reset scroll tracking
+
+    // Listen for scroll events (passive for better performance)
+    window.addEventListener("scroll", updateHeader, { passive: true });
+  }
+
+  // Initialize when page loads and when navigating in Astro
+  document.addEventListener("DOMContentLoaded", init);
+  document.addEventListener("astro:page-load", init);
+</script>
