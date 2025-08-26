@@ -13,6 +13,12 @@
  */
 
 // Source: schema.json
+export type Link = {
+  _type: "link";
+  title?: string;
+  url?: string;
+};
+
 export type ActiveStyle = {
   _id: string;
   _type: "activeStyle";
@@ -279,6 +285,9 @@ export type About = {
     alt?: string;
     _type: "image";
   };
+  socialLinks?: Array<{
+    _key: string;
+  } & Link>;
 };
 
 export type Color = {
@@ -432,7 +441,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = ActiveStyle | LayoutSettings | Typography | DarkTheme | LightTheme | Category | Tag | BlockContent | Post | About | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Link | ActiveStyle | LayoutSettings | Typography | DarkTheme | LightTheme | Category | Tag | BlockContent | Post | About | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ../astro-app/src/utils/sanity.ts
 // Variable: DARK_THEME_QUERY
@@ -615,7 +624,15 @@ export type ABOUT_QUERYResult = {
     alt?: string;
     _type: "image";
   };
+  socialLinks?: Array<{
+    _key: string;
+  } & Link>;
 } | null;
+// Variable: LINKS_QUERY
+// Query: *[_type == "about"][0].socialLinks[]
+export type LINKS_QUERYResult = Array<{
+  _key: string;
+} & Link> | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -628,5 +645,6 @@ declare module "@sanity/client" {
     "*[_type == \"post\" && defined(slug.current)]{..., \"categories\": categories[]->name, \"tags\": tags[]->name} | order(_createdAt desc)": POSTS_QUERYResult;
     "*[_type == \"post\" && slug.current == $slug][0]{..., \"categories\": categories[]->name, \"tags\": tags[]->name}": POST_BY_SLUG_QUERYResult;
     "*[_type == \"about\"][0]": ABOUT_QUERYResult;
+    "*[_type == \"about\"][0].socialLinks[]": LINKS_QUERYResult;
   }
 }

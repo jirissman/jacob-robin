@@ -1,30 +1,26 @@
 ---
 // Footer component
+import { getLinks } from "../utils/sanity";
+
+const socialLinks = await getLinks();
+
+type SocialLink = {
+  title: string;
+  url: string;
+};
 ---
 
 <footer class="footer">
   <div class="footer__content">
     <div class="footer__social">
-      <a
-        href="https://medium.com/@yourhandle"
-        target="_blank"
-        rel="noopener noreferrer">Medium</a
-      >
-      <a
-        href="https://www.instagram.com/yourhandle"
-        target="_blank"
-        rel="noopener noreferrer">Instagram</a
-      >
-      <a
-        href="https://x.com/yourhandle"
-        target="_blank"
-        rel="noopener noreferrer">Twitter</a
-      >
-      <a
-        href="https://www.linkedin.com/in/yourhandle"
-        target="_blank"
-        rel="noopener noreferrer">LinkedIn</a
-      >
+      {
+        socialLinks &&
+          socialLinks.map((link: SocialLink) => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
+              {link.title}
+            </a>
+          ))
+      }
     </div>
     <p class="footer__text">© 2025 Jacob Robin. All rights reserved.</p>
   </div>
