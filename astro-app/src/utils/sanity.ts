@@ -7,6 +7,7 @@ import type {
   POSTS_QUERYResult,
   POST_BY_SLUG_QUERYResult,
   ABOUT_QUERYResult,
+  LINKS_QUERYResult,
 } from "../../../shared/sanity.types";
 import groq from "groq";
 
@@ -125,6 +126,6 @@ export async function getAbout(): Promise<ABOUT_QUERYResult> {
   return await sanityClient.fetch(ABOUT_QUERY);
 }
 
-export async function getLinks() {
+export async function getLinks(): Promise<LINKS_QUERYResult> {
   return await sanityClient.fetch(LINKS_QUERY);
 }
