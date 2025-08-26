@@ -26,7 +26,6 @@ import { ThemeToggleButton } from "../components";
     right: 0;
     top: 0;
     z-index: 10;
-    will-change: transform;
 
     & .header__brand {
       flex-shrink: 0;
@@ -60,10 +59,6 @@ import { ThemeToggleButton } from "../components";
       &:hover {
         color: var(--nav-text-hover-color);
       }
-
-      &--home {
-        font-weight: 700;
-      }
     }
   }
 
@@ -75,9 +70,6 @@ import { ThemeToggleButton } from "../components";
 
   @media (min-width: 575px) {
     .header {
-      position: fixed;
-      border-bottom: 1px solid var(--border-color);
-
       & .brand__link {
         font-size: var(--font-size-4);
       }
