@@ -13,7 +13,7 @@ Personal website for Jacob Robin, a creative writer and storyteller. This site i
 
 ## Live Site
 
-Visit the website at: [https://jacob-robin.vercel.app](https://jacob-robin.vercel.app)
+Visit the website at: [https://jacobrobin.com](https://jacobrobin.com)
 
 ## Development Setup
 

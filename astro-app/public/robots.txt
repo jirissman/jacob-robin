@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jacob-robin.vercel.app/sitemap-index.xml
+Sitemap: https://jacobrobin.com/sitemap-index.xml

@@ -24,7 +24,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jacob-robin.vercel.app",
+  site: "https://jacobrobin.com",
   adapter: vercel({
     imageService: true,
   }),
