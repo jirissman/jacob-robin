@@ -17,7 +17,7 @@ if (!about) {
   <section class="about">
     <!-- <div class="about__layout"> -->
     {
-      about.image ? (
+      about.image?.asset ? (
         <div class="about__image">
           <img
             src={urlFor(about.image as Image).url()}
